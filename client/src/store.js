@@ -1,0 +1,15 @@
+//boilerplate
+//sa himo kag createStore para pasahan ug data
+
+import { createStore, applyMiddleware } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import rootReducer from './reducer';
+
+const initialState = {};
+
+const middleware = [ thunk ];
+
+const store = createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleware)));
+
+export default store;

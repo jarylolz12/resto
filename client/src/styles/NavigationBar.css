@@ -1,0 +1,28 @@
+.navbar-dark .navbar-brand {
+	color: var(--standard);
+}
+
+.navbar-dark .navbar-brand:hover {
+	color: var(--hover);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: var(--standard);
+}
+
+.navbar-dark .navbar-nav .show > .nav-link {
+	color: var(--standard);
+}
+
+.navbar-dark {
+	background-color: #dcdcdc;
+}
+
+#navbarDropdown:hover {
+	color: var(--hover);
+}
+
+.orderCounter {
+	color: red;
+	font-weight: 1000;
+}

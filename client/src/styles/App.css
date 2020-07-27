@@ -1,0 +1,494 @@
+.App {
+	text-align: center;
+}
+
+.App-link {
+	color: #61dafb;
+}
+
+:root {
+	--shadow: 9px 6px 15px #c6c6c6;
+	--standard: #3d7f95;
+	--headers: #5177b2;
+	--boxcolor: #cdcdcd;
+	--hover: #72cce8;
+	--borders: 1px solid #c6c6c6;
+	--danger: #dc143c;
+	--success: #2e8b57;
+	--body: #f7f7f7;
+}
+
+.danger {
+	background: var(--danger);
+	background-image: linear-gradient(var(--danger), #960e10);
+	padding: 1rem;
+	margin: 1rem auto;
+	width: 70rem;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 20px;
+	color: #fffff0;
+}
+
+.success {
+	background: var(--success);
+	background-image: linear-gradient(var(--success), #1b5233);
+	padding: 1rem;
+	margin: 1rem auto;
+	width: 70rem;
+	text-align: center;
+	border-radius: 10px;
+	font-size: 20px;
+	color: #fffff0;
+}
+
+h1 {
+	color: var(--standard);
+	margin: 0;
+}
+
+h2 {
+	color: var(--standard);
+	margin: 0;
+}
+
+h3 {
+	color: var(--standard);
+	margin: 0;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	color: var(--standard);
+}
+
+a {
+	text-decoration: none;
+	color: var(--standard);
+	margin-right: 0.45rem;
+}
+
+a:hover {
+	color: var(--hover);
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color: var(--body);
+}
+
+/* Login Page */
+
+.login {
+	width: 70%;
+	margin: 2.5rem auto;
+	padding: 1em;
+	text-align: center;
+	box-shadow: var(--shadow);
+	font-size: 1.2rem;
+	border-radius: 10px;
+}
+
+.form-group {
+	display: block;
+	margin: 1.2rem 0;
+	width: 100%;
+}
+
+.login button {
+	padding: 0.1rem;
+}
+
+.chkBox {
+	display: block;
+	margin: 1.2rem 0;
+	width: 100%;
+	text-align: left;
+}
+
+.login input[type='text'],
+.login input[type='email'],
+.login input[type='password'],
+.login input[type='date'],
+.login select,
+.login textarea {
+	display: block;
+	width: 100%;
+	padding: 0.4rem;
+	font-size: 1.2rem;
+	border: 1px solid #ccc;
+}
+
+.login input[type='submit'],
+button {
+	font: inherit;
+}
+
+/*menu page*/
+
+.container {
+	width: 95%;
+	margin: auto auto 10px auto;
+}
+
+.optionPage {
+	text-align: center;
+	margin: 1rem 0 1rem 0;
+}
+
+.menuGrid {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.menuCategory {
+	border: 30px solid var(--standard);
+	border-image: url(../img/topLeft.svg);
+	border-image-repeat: round;
+	border-image-slice: 95;
+	flex-basis: 35rem;
+	margin-bottom: 2.5rem;
+}
+
+.itemName {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-top: 15px;
+}
+
+.itemName li button {
+	border: none;
+	color: var(--standard);
+	display: none;
+	margin-left: 5px;
+}
+
+.itemName li:hover button {
+	display: inline;
+}
+
+.itemName li button:hover {
+	color: var(--hover);
+}
+
+/*Active Orders (menu)*/
+
+.ordersMenu {
+	border: var(--borders);
+	text-align: center;
+	color: var(--standard);
+}
+
+.ordersMenu th {
+	border: var(--borders);
+	padding: 10px 50px 10px 50px;
+}
+.ordersMenu td {
+	border: var(--borders);
+	padding: 10px 50px 10px 50px;
+}
+
+/* categories page */
+
+.catDisp {
+	text-align: center;
+	margin: 20px;
+}
+
+.catDisp .catList {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	padding: 7px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.catDisp .catList li {
+	padding: 0.5rem;
+}
+
+/* Confirmed Order Page */
+
+.orderForm {
+	width: 100%;
+	margin: auto;
+	padding: .1em;
+	text-align: center;
+	box-shadow: var(--shadow);
+	font-size: 1.2rem;
+	border-radius: 10px;
+}
+
+.orderForm table {
+	width: 100%;
+	margin: auto;
+	border-collapse: collapse;
+	color: var(--standard);
+}
+
+.orderForm table th {
+	width: 10rem;
+}
+
+.orderForm table tr:nth-child(even) {
+	background-color: #eeee;
+	position: relative;
+}
+
+.orderForm table td:nth-of-type(4) button {
+	display: none;
+	padding: 0;
+	border: none;
+}
+
+.orderForm table td:nth-of-type(4):hover button {
+	display: inline;
+}
+
+.orderForm table,
+th,
+td {
+	padding: .5em;
+	text-align: left;
+}
+
+.orderForm input[type='text'] {
+	display: inline-block;
+	width: 2rem;
+	padding: 0.4rem;
+	font-size: 1rem;
+	margin: 0 7px 0 7px;
+	border: 1px solid #ccc;
+}
+
+.orderForm button {
+	width: 1.5rem;
+	background-color: transparent;
+	border: 1px solid var(--standard);
+	color: var(--standard);
+	padding: .2rem;
+	border-radius: .2rem;
+}
+
+.orderForm button:hover {
+	color: var(--hover);
+	font: inherit;
+	border: 1px solid var(--hover);
+}
+
+.orderForm input[type='submit'] {
+	font: inherit;
+	margin: 10px 10px 10px 0;
+}
+
+/*staff order list*/
+
+.activeOrders {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: flex-start;
+}
+
+.activeOrders ul {
+	border: 1px solid var(--standard);
+	border-radius: 15px;
+	padding: .5rem;
+	margin: 1rem;
+	font-size: 18px;
+	width: 31%;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.activeOrders ul li {
+	margin: 0.5rem;
+}
+
+.activeOrders ul select {
+	display: block;
+	width: 50%;
+	font-size: 1rem;
+	border: 1px solid #ccc;
+}
+
+.activeOrders ul input {
+	display: block;
+	width: 50%;
+	font-size: 1rem;
+}
+
+.activeOrders ul form {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-size: 1rem;
+}
+
+.activeOrders ul .left {
+	width: 15rem;
+	text-align: center;
+}
+.activeOrders ul .right {
+	width: 15rem;
+	text-align: center;
+}
+
+.activeOrders ul .center {
+	width: 15rem;
+}
+
+/* .hidden {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+} */
+
+/*.orders li{
+	margin: 10px;
+	border: 1px solid black;
+}
+*/
+
+/* @media only screen and (max-width: 1750px) {
+	img {
+		width: 29rem;
+	}
+	.menuGrid {
+		text-align: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		padding: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.menuItems {
+		width: 29.1rem;
+		border: 1px solid #c6c6c6;
+		margin-bottom: 10px;
+	}
+
+	.menuPar {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.menuPar img {
+		margin: auto auto 5px auto;
+	}
+
+	.menuPar p {
+		margin-bottom: 5px;
+	}
+	.ordersMenu th {
+		border: var(--borders);
+		padding: 10px 25px 10px 25px;
+	}
+	.ordersMenu td {
+		border: var(--borders);
+		padding: 10px 50px 10px 50px;
+	}
+}
+
+@media only screen and (max-width: 1550px) {
+	img {
+		width: 37rem;
+	}
+
+	.menuGrid {
+		text-align: center;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.menuItems {
+		width: 37.1rem;
+		margin: auto auto 10px auto;
+		border: 1px solid #c6c6c6;
+	}
+
+	.menuPar {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.menuPar img {
+		margin: 0 auto;
+	}
+
+	.menuPar p {
+		overflow: hidden;
+		overflow-wrap: break-word;
+		margin-bottom: 5px;
+	}
+
+	.ordersMenu th {
+		border: var(--borders);
+		padding: 10px 17px 10px 17px;
+	}
+	.ordersMenu td {
+		border: var(--borders);
+		padding: 10px 17px 10px 17px;
+	}
+}
+
+@media only screen and (max-width: 900px) {
+	img {
+		width: 23rem;
+	}
+
+	.menuGrid {
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.menuItems {
+		width: 23.1rem;
+		margin: auto auto 10px auto;
+		border: 1px solid #c6c6c6;
+	}
+
+	.menuPar {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.menuPar img {
+		margin-bottom: 5px;
+	}
+
+	.menuPar p {
+		overflow: hidden;
+		overflow-wrap: break-word;
+		height: 20px;
+		margin-bottom: 5px;
+	}
+
+	.ordersMenu th {
+		border: var(--borders);
+		padding: 10px;
+	}
+	.ordersMenu td {
+		border: var(--borders);
+		padding: 10px;
+	}
+} */
