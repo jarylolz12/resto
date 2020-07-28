@@ -45,7 +45,7 @@ const MenuUpdateForm = ({ menuUpdateFetch, category, onChange, onSubmit, updateF
 				</div>
 				<input type="submit" value="Submit" style={{ marginRight: '10px' }} />
 
-				<Link to="/menu" onClick={updateFetchFlush}>
+				<Link to="/staffMenu" onClick={updateFetchFlush}>
 					<input type="submit" value="Back" />
 				</Link>
 			</form>

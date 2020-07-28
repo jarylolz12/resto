@@ -152,10 +152,10 @@ button {
 }
 
 .menuCategory {
-	border: 30px solid var(--standard);
+	border: 25px solid var(--standard);
 	border-image: url(../img/topLeft.svg);
-	border-image-repeat: round;
-	border-image-slice: 95;
+	border-image-repeat: stretch;
+	border-image-slice: 70;
 	flex-basis: 35rem;
 	margin-bottom: 2.5rem;
 }

@@ -47,7 +47,7 @@ function App() {
 						<Switch>
 							<Route exact path="/login" component={Login} />
 							<PrivateRoute exact path="/register" component={Register} />
-							<PrivateRoute exact path="/menu" component={Menu} />
+							<PrivateRoute exact path="/staffMenu" component={Menu} />
 							<PrivateRoute exact path="/menuNew" component={MenuNew} />
 							<PrivateRoute exact path="/categoryNew" component={CategoryNew} />
 							<PrivateRoute exact path="/menuUpdate" component={MenuUpdate} />

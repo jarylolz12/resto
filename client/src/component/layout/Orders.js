@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import OrderMenu from '../subLayout/OrderMenu';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { actCategory } from '../../action/category';
 import { actMenu } from '../../action/menu';
 
-const Orders = ({ actCategory, actMenu }) => {
+const Orders = ({ actCategory, actMenu, isAuthenticated }) => {
 	useEffect(
 		() => {
 			actMenu();
@@ -14,24 +15,33 @@ const Orders = ({ actCategory, actMenu }) => {
 		[ actMenu, actCategory ]
 	);
 
-	return (
-		<div>
-			<div className="optionPage">
-				<h1>Menu</h1>
+	if (isAuthenticated) {
+		return <Redirect to="/staffMenu" />;
+	} else {
+		return (
+			<div>
+				<div className="optionPage">
+					<h1>Menu</h1>
+				</div>
+				<div className="menuGrid">
+					<OrderMenu />
+				</div>
 			</div>
-			<div className="menuGrid">
-				<OrderMenu />
-			</div>
-		</div>
-	);
+		);
+	}
 };
 
 Orders.propTypes = {
 	actCategory: PropTypes.func.isRequired,
-	actMenu: PropTypes.func.isRequired
+	actMenu: PropTypes.func.isRequired,
+	isAuthenticated: PropTypes.bool.isRequired
 };
 
-export default connect(null, { actCategory, actMenu })(Orders);
+const mapStateToProps = (state) => ({
+	isAuthenticated: state.login.isAuthenticated
+});
+
+export default connect(mapStateToProps, { actCategory, actMenu })(Orders);
 
 // class Orders {
 // 	constructor(id, name, price, category, quantity) {

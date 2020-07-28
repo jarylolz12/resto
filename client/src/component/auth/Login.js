@@ -24,7 +24,7 @@ const Login = ({ actLogin, isAuthenticated }) => {
 	const { email, password } = formData;
 
 	if (isAuthenticated) {
-		return <Redirect to="/menu" />;
+		return <Redirect to="/staffMenu" />;
 	}
 
 	//event handler/function para dynamically ma set/fetch nimo ang values sa textfields

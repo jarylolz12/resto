@@ -14,7 +14,7 @@ const format = {
 //authentication para sa orders
 //access - Public >> (public or private) - para kung need ug token para i access ang specific route like mag register ka, kung d ka allowed sa specifi page,
 //unathorized access ka didto.
-router.get('/orders', async (req, res) => {
+router.get('/orders', conft.ticket, async (req, res) => {
 	try {
 		await Orders.find({}, (err, data) => {
 			if (err) {

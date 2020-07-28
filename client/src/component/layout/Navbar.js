@@ -76,7 +76,7 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 	const staffOptions = (
 		<Fragment>
 			<li className="nav-item" onClick={updateFetchFlush}>
-				<Link to="/menu">Menu</Link>
+				<Link to="/staffMenu">Menu</Link>
 			</li>
 			<li className="nav-item">
 				<Link to="/ordersStaff">Orders</Link>

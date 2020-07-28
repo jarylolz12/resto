@@ -68,7 +68,7 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 						/>
 					</div>
 					<input type="submit" value="Submit" />
-					<Link to="/menu" onClick={updateFetchFlush}>
+					<Link to="/staffMenu" onClick={updateFetchFlush}>
 						<input type="submit" value="Back" style={{ marginLeft: '10px' }} />
 					</Link>
 				</form>

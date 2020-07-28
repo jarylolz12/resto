@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 const Landing = ({ isAuthenticated }) => {
 	if (isAuthenticated) {
-		return <Redirect to="/menu" />;
+		return <Redirect to="/staffMenu" />;
 	} else {
 		return (
 			<Fragment>

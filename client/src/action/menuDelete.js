@@ -4,7 +4,7 @@ import { DELETE_MENU, DELETE_MENU_FAIL } from './types';
 
 export const actFetchDelete = (id) => async (dispatch) => {
 	try {
-		const res = axios.delete(`/menu/${id}/del`);
+		const res = await axios.delete(`/menu/${id}/del`);
 		dispatch({
 			type: DELETE_MENU,
 			payload: res.data

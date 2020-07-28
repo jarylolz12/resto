@@ -45,6 +45,7 @@ const StaffMenu = ({ menu, category, actFetchUpdate, actFetchDelete, actMenu }) 
 StaffMenu.propTypes = {
 	actFetchUpdate: PropTypes.func.isRequired,
 	actMenu: PropTypes.func.isRequired,
+	actFetchDelete: PropTypes.func.isRequired,
 	menu: PropTypes.array,
 	category: PropTypes.array
 };
