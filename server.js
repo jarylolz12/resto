@@ -19,7 +19,7 @@ app.use(routeMenu);
 app.use(routeCategory);
 
 //serve static assets sa production
-if (process.env.NODE_ENV === 'prduction') {
+if (process.env.NODE_ENV === 'production') {
 	//set static folder
 	app.use(express.static('client/build'));
 	app.get('*', (req, res) => {
