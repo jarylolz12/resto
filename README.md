@@ -4,7 +4,6 @@ My personal app built with MERN(MongoDB, Express JS, React JS, Node JS) stack.
 A sample app site: https://calm-everglades-15287.herokuapp.com/
 
 About:
-Overview
 An app that simulates ordering food and claiming it from restaurant anywhere and anytime. imagine, you want to order something from a restaurant but you are not comfortable taking the line or you want your order to be served once you arrived at the said restaurant to avoid taking the line or queue.
 
 How it works:
