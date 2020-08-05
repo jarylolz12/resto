@@ -1,5 +1,5 @@
 # resto
-Mini e-commerce site built with MERN(MongoDB, Express JS, React JS, Node JS) stack.
+My personal app built with MERN(MongoDB, Express JS, React JS, Node JS) stack.
 
 A sample app site: https://calm-everglades-15287.herokuapp.com/
 
