@@ -34,7 +34,7 @@ const Orders = ({ actCategory, actMenu, isAuthenticated }) => {
 Orders.propTypes = {
 	actCategory: PropTypes.func.isRequired,
 	actMenu: PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool.isRequired
+	isAuthenticated: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({
