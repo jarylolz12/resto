@@ -69,7 +69,7 @@ const About = () => {
 						<li>React-Redux</li>
 						<li>MongoDB</li>
 						<li>
-							<strong>Javascript:</strong>
+							<strong>Javascript</strong>
 						</li>
 						<li>React Js</li>
 						<li>Node Js</li>

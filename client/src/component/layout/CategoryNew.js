@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { actCategoryNew } from '../../action/categoryNew';
 import { updateFetchFlush } from '../../action/menuUpdate';
@@ -15,17 +15,29 @@ const CategoryNew = ({ actCategoryNew, category, updateFetchFlush, actCategory }
 	const { mnuCategory } = categoryData;
 
 	const onChange = (e) => setCategoryData({ ...categoryData, [e.target.name]: e.target.value });
+
 	const onSubmit = (e) => {
 		e.preventDefault();
 		actCategoryNew({ mnuCategory });
-		actCategory();
+		return actCategory();
 	};
-	useEffect(
-		() => {
-			actCategory();
-		},
-		[ onSubmit, actCategory() ]
-	);
+
+	// const onSubmit = useCallback(
+	// 	(e, value) => {
+	// 		e.preventDefault();
+	// 		actCategoryNew(value);
+	// 		console.log('dfgfdg');
+	// 		return actCategory();
+	// 	},
+	// 	[ actCategory, actCategoryNew ] dili pud ka pwede mag useCallback
+	// );
+
+	// useEffect(
+	// 	() => {
+	// 		actCategory();
+	// 	},
+	// 	[ onSubmit, actCategory ]
+	// );
 
 	return (
 		<div className="login">

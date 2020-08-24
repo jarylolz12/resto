@@ -57,8 +57,7 @@ const OrderMenu = ({ menu, category, ordersFetch }) => {
 						(putahe) =>
 							categorize._id === putahe.mnuCategory[0]._id && (
 								<ul className="itemName" key={putahe._id}>
-									<li>
-										{putahe.mnuName}
+									<li title="Add to order">
 										<button
 											onClick={() =>
 												onClick(
@@ -69,7 +68,7 @@ const OrderMenu = ({ menu, category, ordersFetch }) => {
 													1
 												)}
 										>
-											add to <i className="fas fa-utensils" />
+											{putahe.mnuName}
 										</button>
 									</li>
 									<li>{putahe.mnuPrice}.00 Php</li>

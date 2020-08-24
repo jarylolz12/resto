@@ -26,3 +26,13 @@
 	color: red;
 	font-weight: 1000;
 }
+
+.nav-link {
+	display: inline;
+}
+
+#navbarDropdown {
+	background-color: transparent;
+	border: none;
+	color: var(--standard);
+}

@@ -16,13 +16,13 @@ const Landing = ({ isAuthenticated }) => {
 						<p>It's a cruel witted taste</p>
 
 						<div>
-							<Link to="/myOrders">
+							<Link to="/myOrders" title="Customer Orders">
 								<button>Orders</button>
 							</Link>
-							<Link to="/about">
+							<Link to="/about" title="The Specification">
 								<button>About</button>
 							</Link>
-							<Link to="/login">
+							<Link to="/login" title="Please ask the admin for log-in Credentials">
 								<button>Staff Login</button>
 							</Link>
 						</div>

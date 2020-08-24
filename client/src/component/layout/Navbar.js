@@ -9,27 +9,28 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 
 	const adminLinks = (
 		<ul className="m-0">
-			<li class="nav-item dropdown">
-				<a
+			<li className="nav-item dropdown">
+				<span>Logged in as: </span>
+				<button
 					className="nav-link dropdown-toggle p-0"
 					id="navbarDropdown"
-					role="button"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false"
+					title="Options"
 				>
-					Logged in as: {name}
-				</a>
+					{name}
+				</button>
 				<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a className="dropdown-item">
+					<button className="dropdown-item">
 						<Link to="/register">Staff Register</Link>
-					</a>
-					<a className="dropdown-item">
+					</button>
+					<button className="dropdown-item">
 						<Link to="/menuNew">New</Link>
-					</a>
-					<a className="dropdown-item" onClick={logOut} href="/">
+					</button>
+					<button className="dropdown-item" onClick={logOut} href="/">
 						<Link to="/">Log Out</Link>
-					</a>
+					</button>
 				</div>
 			</li>
 		</ul>
@@ -38,23 +39,23 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 	const staffLinks = (
 		<ul className="m-0">
 			<li className="nav-item dropdown">
-				<a
+				<span>Logged in as: </span>
+				<button
 					className="nav-link dropdown-toggle p-0"
 					id="navbarDropdown"
-					role="button"
 					data-toggle="dropdown"
 					aria-haspopup="true"
 					aria-expanded="false"
 				>
-					Logged in as: {name}
-				</a>
+					{name}
+				</button>
 				<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					<a className="dropdown-item">
+					<button className="dropdown-item">
 						<Link to="/menuNew">New</Link>
-					</a>
-					<a class="dropdown-item" onClick={logOut} href="/">
+					</button>
+					<button className="dropdown-item" onClick={logOut} href="/">
 						<Link to="/">Log Out</Link>
-					</a>
+					</button>
 				</div>
 			</li>
 		</ul>
@@ -65,9 +66,9 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 			<ul className="m-0">
 				<li className="nav-item">
 					<span className="orderCounter">{!orderCount ? '' : orderCount}</span>
-					<a href="/myOrdersConfirm" disabled={orderCount.qty <= 1}>
+					<Link to="/myOrdersConfirm" title="My Orders">
 						<i className="fas fa-utensils" />
-					</a>
+					</Link>
 				</li>
 			</ul>
 		</Fragment>
@@ -75,10 +76,10 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 
 	const staffOptions = (
 		<Fragment>
-			<li className="nav-item" onClick={updateFetchFlush}>
+			<li className="nav-item" onClick={updateFetchFlush} title="Return to Menu Page">
 				<Link to="/staffMenu">Menu</Link>
 			</li>
-			<li className="nav-item">
+			<li className="nav-item" title="Proceed to Orders Page">
 				<Link to="/ordersStaff">Orders</Link>
 			</li>
 		</Fragment>
@@ -86,9 +87,12 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark p-2">
-			<a className="navbar-brand p-0" href="/">
+			{/* <button className="navbar-brand p-0" href="/" title="Home"> */}
+			<Link to="/" className="navbar-brand p-0" title="Home">
 				<i className="fas fa-carrot" />
-			</a>
+			</Link>
+
+			{/* </button> */}
 			<button
 				className="navbar-toggler"
 				type="button"

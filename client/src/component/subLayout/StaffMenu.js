@@ -24,12 +24,12 @@ const StaffMenu = ({ menu, category, actFetchUpdate, actFetchDelete, actMenu }) 
 						(putahe) =>
 							categorize._id === putahe.mnuCategory[0]._id && (
 								<ul className="itemName" key={putahe._id}>
-									<li onClick={async () => actFetchUpdate(putahe._id)}>
+									<li title="Edit Menu" onClick={async () => actFetchUpdate(putahe._id)}>
 										<Link to="/MenuUpdate">{putahe.mnuName}</Link>
 									</li>
 									<li>
 										{putahe.mnuPrice}.00 Php
-										<button onClick={() => onClickDelete(putahe._id)}>
+										<button title="Delete Menu" onClick={() => onClickDelete(putahe._id)}>
 											<i className="fas fa-times-circle" />
 										</button>
 									</li>

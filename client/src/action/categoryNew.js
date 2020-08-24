@@ -4,6 +4,7 @@ import { CATEGORYNEW_SAVE, CATEGORYNEW_FAIL } from './types';
 
 export const actCategoryNew = (mnuCategory) => async (dispatch) => {
 	try {
+		// const menuCat = { mnuCategory };
 		const config = {
 			headers: {
 				'content-type': 'application/json'

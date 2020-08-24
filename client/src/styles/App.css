@@ -170,13 +170,13 @@ button {
 .itemName li button {
 	border: none;
 	color: var(--standard);
-	display: none;
 	margin-left: 5px;
+	background-color: transparent;
 }
 
-.itemName li:hover button {
-	display: inline;
-}
+/* .itemName li:hover button {
+	color: var(--hover);
+} */
 
 .itemName li button:hover {
 	color: var(--hover);
@@ -223,7 +223,7 @@ button {
 
 .orderForm {
 	width: 100%;
-	margin: auto;
+	margin: 2rem auto;
 	padding: .1em;
 	text-align: center;
 	box-shadow: var(--shadow);
@@ -236,6 +236,7 @@ button {
 	margin: auto;
 	border-collapse: collapse;
 	color: var(--standard);
+	text-align: center;
 }
 
 .orderForm table th {
@@ -248,20 +249,16 @@ button {
 }
 
 .orderForm table td:nth-of-type(4) button {
-	display: none;
+	/* display: none; */
 	padding: 0;
 	border: none;
-}
-
-.orderForm table td:nth-of-type(4):hover button {
-	display: inline;
 }
 
 .orderForm table,
 th,
 td {
 	padding: .5em;
-	text-align: left;
+	text-align: center;
 }
 
 .orderForm input[type='text'] {
@@ -366,47 +363,17 @@ td {
 }
 */
 
-/* @media only screen and (max-width: 1750px) {
-	img {
-		width: 29rem;
-	}
-	.menuGrid {
-		text-align: center;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		padding: 1.5rem;
-		flex-wrap: wrap;
-	}
-
-	.menuItems {
-		width: 29.1rem;
-		border: 1px solid #c6c6c6;
-		margin-bottom: 10px;
-	}
-
-	.menuPar {
-		display: flex;
-		flex-direction: column;
-	}
-
-	.menuPar img {
-		margin: auto auto 5px auto;
-	}
-
-	.menuPar p {
-		margin-bottom: 5px;
-	}
-	.ordersMenu th {
-		border: var(--borders);
-		padding: 10px 25px 10px 25px;
-	}
-	.ordersMenu td {
-		border: var(--borders);
-		padding: 10px 50px 10px 50px;
+@media only screen and (max-width: 1080px) {
+	.menuCategory {
+		border: 25px solid var(--standard);
+		border-image: url(../img/topLeft.svg);
+		border-image-repeat: stretch;
+		border-image-slice: 70;
+		flex-basis: 20rem;
+		margin-bottom: 2.5rem;
 	}
 }
-
+/*
 @media only screen and (max-width: 1550px) {
 	img {
 		width: 37rem;

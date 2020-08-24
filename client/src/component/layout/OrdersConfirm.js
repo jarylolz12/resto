@@ -10,13 +10,22 @@ const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthentica
 		sessionStorage.setItem('orders', stringMe);
 		ordersFetch(ordersData);
 	};
+
+	// const updateStorageDatas = useCallback(() => {
+	// 	const stringMe = JSON.stringify(ordersData); // ayaw pag gamit ug useCallback kay dili pud ma-update ang sessionStorage
+	// 	sessionStorage.setItem('orders', stringMe);
+	// 	ordersFetch(ordersData);
+	// }, []);
+
 	const [ ordersData, setOrdersData ] = useState(orders);
+
 	useEffect(
 		() => {
 			updateStorageDatas();
 		},
-		[ ordersData, ordersFetch ]
+		[ ordersData ]
 	);
+
 	if (isAuthenticated) {
 		return <Redirect to="/staffMenu" />;
 	} else {
@@ -38,6 +47,7 @@ const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthentica
 		const onDelete = async (e, id) => {
 			e.preventDefault();
 			setOrdersData([ ...ordersData.filter((order) => order.id !== id) ]);
+			updateStorageDatas();
 		};
 
 		const onSubmit = async (e) => {
@@ -82,15 +92,18 @@ const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthentica
 											<button
 												onClick={(e) => onUpdate(e, order.id, order.qty - 1)}
 												disabled={order.qty <= 1}
+												title="Deduct 1"
 											>
 												-
 											</button>
 											<input type="text" name="orderQty" value={order.qty} readOnly={true} />
-											<button onClick={(e) => onUpdate(e, order.id, order.qty + 1)}>+</button>
+											<button title="Add 1" onClick={(e) => onUpdate(e, order.id, order.qty + 1)}>
+												+
+											</button>
 										</td>
 										<td>
 											{order.price * order.qty}
-											<button onClick={(e) => onDelete(e, order.id)}>
+											<button onClick={(e) => onDelete(e, order.id)} title="Cancel">
 												<i className="fas fa-times-circle" />
 											</button>
 										</td>
@@ -108,14 +121,14 @@ const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthentica
 										<h4 style={{ textAlign: 'right' }}>Overall Total:</h4>
 									</th>
 									<th>
-										<h4>{overallTotal}</h4>
+										<h4 style={{ textAlign: 'left' }}>{overallTotal}</h4>
 									</th>
 								</tr>
 							</tbody>
 						</table>
-						<input type="submit" value="Proceed" disabled={overallTotal <= 1} />
+						<input title="Generate Claim Stub" type="submit" value="Proceed" disabled={overallTotal <= 1} />
 						<Link to="/myOrders">
-							<input type="submit" value="Back" />
+							<input type="submit" value="Back" title="Return" />
 						</Link>
 					</form>
 				</div>
