@@ -1,0 +1,31 @@
+@import 'config';
+.about-page {
+	width: 70%;
+	height: 100vh;
+	margin: auto;
+	padding: 2em;
+	box-shadow: $shadow;
+	font-size: 1rem;
+	border-radius: $radius;
+
+	.article,
+	.aside {
+		margin: $medium;
+	}
+
+	.about-specs {
+		display: flex;
+		flex-direction: row;
+		text-align: center;
+		justify-content: space-around;
+
+		ul {
+			width: 30%;
+		}
+	}
+
+	button {
+		display: block;
+		margin: auto;
+	}
+}

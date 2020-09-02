@@ -34,7 +34,7 @@ const CategoryNew = ({ actCategoryNew, category, updateFetchFlush, actCategory }
 
 	// useEffect(
 	// 	() => {
-	// 		actCategory();
+	// 		actCategory(); setcategory()
 	// 	},
 	// 	[ onSubmit, actCategory ]
 	// );

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Fragment } from 'react';
 import { Redirect } from 'react-router-dom';
 import OrderMenu from '../subLayout/OrderMenu';
 import { connect } from 'react-redux';
@@ -19,14 +19,12 @@ const Orders = ({ actCategory, actMenu, isAuthenticated }) => {
 		return <Redirect to="/staffMenu" />;
 	} else {
 		return (
-			<div>
-				<div className="optionPage">
-					<h1>Menu</h1>
-				</div>
-				<div className="menuGrid">
+			<Fragment>
+				<h1>Menu</h1>
+				<div className="menu-flex-container">
 					<OrderMenu />
 				</div>
-			</div>
+			</Fragment>
 		);
 	}
 };

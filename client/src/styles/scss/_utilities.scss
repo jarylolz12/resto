@@ -1,0 +1,86 @@
+@import 'mixins';
+@import 'config';
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: $primary-color;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+	color: $primary-color;
+}
+
+a {
+	text-decoration: none;
+	color: $primary-color;
+
+	&:hover {
+		color: $hover-color;
+	}
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color: $body;
+}
+
+#show {
+	display: block;
+}
+
+#hide {
+	display: none;
+}
+
+.container {
+	width: 90%;
+	margin: auto;
+	padding: 0 $medium;
+	text-align: center;
+}
+
+.btn-wrapper {
+	border: none;
+	@include btn-transparent;
+}
+
+.btn-wrapper-border {
+	padding: $x-small;
+	border: $borders $primary-color;
+	@include btn-transparent;
+
+	&:hover {
+		background-color: $primary-color;
+	}
+}
+
+.form-global {
+	width: 50%;
+	margin: auto;
+	text-align: center;
+	background-color: $body;
+	border-radius: 10px;
+
+	h2 {
+		color: $primary-color;
+	}
+
+	.form-family {
+		width: 90%;
+		display: block;
+		// padding: $spacing;
+		margin: auto;
+
+		@include input-designs;
+	}
+}

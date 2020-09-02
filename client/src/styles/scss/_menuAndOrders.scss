@@ -1,0 +1,41 @@
+@import 'config';
+
+.menu-flex-container {
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	align-items: flex-start;
+
+	.menu-category {
+		// box-shadow: $shadow;
+		// border-radius: $radius;
+		// padding: 15px;
+		// border: 2px solid $primary-color;
+		border: 25px solid;
+		border-image: url(../../img/topLeft.svg);
+		border-image-repeat: stretch;
+		border-image-slice: 70;
+		flex-basis: 30rem;
+		margin-bottom: 2.5rem;
+
+		.menu-item-putahe {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			margin-top: 15px;
+
+			li button {
+				border: none;
+				color: $primary-color;
+				margin-left: 5px;
+				background-color: transparent;
+
+				&:hover {
+					color: $hover-color;
+				}
+			}
+		}
+	}
+}

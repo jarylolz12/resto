@@ -1,43 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MenuUpdateForm from '../subLayout/MenuUpdateForm';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { LoadingSpin } from '../layout/LoadingSpin';
 import { actMenuUpdate, updateFetchFlush } from '../../action/menuUpdate';
 const MenuUpdate = ({ actMenuUpdate, menuUpdateFetch, category, updateFetchFlush }) => {
-	const [ newUpdate, setNewUpdate ] = useState({
-		mnuName: '',
-		mnuPrice: '',
-		mnuCategory: ''
-	});
-
-	const { mnuName, mnuCategory, mnuPrice } = newUpdate;
-
-	const onChange = (e) => {
-		setNewUpdate({ ...newUpdate, [e.target.name]: !e.target.value ? e.target.defaultValue : e.target.value });
-	};
-
-	const onSubmit = async (e) => {
-		e.preventDefault();
-
-		const newUpdates = {
-			_id: menuUpdateFetch.menuFetch._id,
-			mnuName: !mnuName ? e.target[0].defaultValue : mnuName,
-			mnuCategory: !mnuCategory ? e.target[1][0].value : mnuCategory,
-			mnuPrice: !mnuPrice ? e.target[2].defaultValue : mnuPrice
-		};
-		actMenuUpdate(newUpdates);
-	};
-
-	return (
+	return menuUpdateFetch.isLoaded === false ? (
+		<LoadingSpin />
+	) : (
 		<div className="container">
 			<div className="login">
 				<h2>Update Menu</h2>
 				<MenuUpdateForm
 					category={category}
 					menuUpdateFetch={menuUpdateFetch}
-					onChange={onChange}
-					onSubmit={onSubmit}
 					updateFetchFlush={updateFetchFlush}
+					actMenuUpdate={actMenuUpdate}
 				/>
 			</div>
 		</div>

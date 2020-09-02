@@ -93,7 +93,6 @@ router.get('/menu/:menuId', conft.ticket, async (req, res) => {
 		res.status(400).json({ errors: [ { msg: 'Login First' } ] });
 	} else {
 		try {
-			console.log(req.params.menuId);
 			const menuId = req.params.menuId;
 			await Menu.findById(menuId, (err, data) => {
 				if (err) {
@@ -173,6 +172,9 @@ router.delete('/menu/:menuId/del', conft.ticket, async (req, res) => {
 	} else {
 		try {
 			const delMenu = req.params.menuId;
+			if (!delMenu) {
+				console.log('TUARA');
+			}
 			await Menu.findByIdAndRemove(delMenu, (err, data) => {
 				if (err) {
 					console.log(err);

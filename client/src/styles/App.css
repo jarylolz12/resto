@@ -42,7 +42,7 @@
 	color: #fffff0;
 }
 
-h1 {
+/* h1 {
 	color: var(--standard);
 	margin: 0;
 }
@@ -55,9 +55,9 @@ h2 {
 h3 {
 	color: var(--standard);
 	margin: 0;
-}
+} */
 
-* {
+/* * {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -81,7 +81,7 @@ a:hover {
 body {
 	font-family: 'Raleway', sans-serif;
 	background-color: var(--body);
-}
+} */
 
 /* Login Page */
 
@@ -132,7 +132,7 @@ button {
 
 /*menu page*/
 
-.container {
+/* .container {
 	width: 95%;
 	margin: auto auto 10px auto;
 }
@@ -172,19 +172,19 @@ button {
 	color: var(--standard);
 	margin-left: 5px;
 	background-color: transparent;
-}
+} */
 
 /* .itemName li:hover button {
 	color: var(--hover);
 } */
 
-.itemName li button:hover {
+/* .itemName li button:hover {
 	color: var(--hover);
-}
+} */
 
 /*Active Orders (menu)*/
 
-.ordersMenu {
+/* .ordersMenu {
 	border: var(--borders);
 	text-align: center;
 	color: var(--standard);
@@ -197,7 +197,7 @@ button {
 .ordersMenu td {
 	border: var(--borders);
 	padding: 10px 50px 10px 50px;
-}
+} */
 
 /* categories page */
 
@@ -349,6 +349,11 @@ td {
 
 .activeOrders ul .center {
 	width: 15rem;
+}
+
+.activeOrders button {
+	width: 100px;
+	text-align: center;
 }
 
 /* .hidden {

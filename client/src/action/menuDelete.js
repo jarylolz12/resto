@@ -1,16 +1,19 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 import { DELETE_MENU, DELETE_MENU_FAIL } from './types';
-
+// import { MENU_FETCH } from './types';
 export const actFetchDelete = (id) => async (dispatch) => {
 	try {
-		const res = await axios.delete(`/menu/${id}/del`);
-		dispatch({
-			type: DELETE_MENU,
-			payload: res.data
-		});
-
-		dispatch(setAlert('Menu Deleted', 'success'));
+		if (id.id === '') {
+			return;
+		} else {
+			const res = await axios.delete(`/menu/${id}/del`);
+			dispatch({
+				type: DELETE_MENU,
+				payload: res.data
+			});
+			dispatch(setAlert('Menu Deleted', 'success'));
+		}
 	} catch (err) {
 		const errors = err.response.data.errors;
 		if (errors) {

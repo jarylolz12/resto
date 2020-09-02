@@ -11,7 +11,7 @@ const Register = ({ actRegister, isAdmin }) => {
 	});
 
 	if (!isAdmin) {
-		return <Redirect to="menu" />;
+		return <Redirect to="/staffMenu" />;
 	}
 
 	const { name, email, password } = formData;

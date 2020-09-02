@@ -1,0 +1,45 @@
+@import 'config';
+
+@mixin flex-row-spc-btwn {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row;
+}
+
+@mixin flex-row-spc-arnd {
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row;
+}
+
+@mixin flex-col {
+	display: flex;
+	justify-content: space-between;
+	flex-flow: column;
+}
+
+@mixin btn-transparent {
+	background-color: transparent;
+	color: $primary-color;
+	&:hover {
+		color: $hover-color;
+	}
+}
+
+@mixin input-designs {
+	input[type='text'],
+	input[type='email'],
+	input[type='password'],
+	input[type='date'],
+	select,
+	input[type ='checkbox'] {
+		display: block;
+		width: 100%;
+		font-size: $small;
+		border: 1px solid #ccc;
+		margin: auto;
+	}
+	input[type='submit'] {
+		font-size: inherit;
+	}
+}

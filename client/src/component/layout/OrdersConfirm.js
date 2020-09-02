@@ -1,29 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { LoadingSpin } from './LoadingSpin';
 import { Link, Redirect } from 'react-router-dom';
 import { ordersFetch, ordersSave } from '../../action/orders';
 const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthenticated }) => {
-	const updateStorageDatas = () => {
-		const stringMe = JSON.stringify(ordersData);
-		sessionStorage.setItem('orders', stringMe);
-		ordersFetch(ordersData);
-	};
-
-	// const updateStorageDatas = useCallback(() => {
-	// 	const stringMe = JSON.stringify(ordersData); // ayaw pag gamit ug useCallback kay dili pud ma-update ang sessionStorage
+	// const updateStorageDatas = () => {
+	// 	const stringMe = JSON.stringify(ordersData);
 	// 	sessionStorage.setItem('orders', stringMe);
 	// 	ordersFetch(ordersData);
-	// }, []);
+	// };
 
 	const [ ordersData, setOrdersData ] = useState(orders);
+
+	const updateStorageDatas = useCallback(
+		() => {
+			const stringMe = JSON.stringify(ordersData);
+			sessionStorage.setItem('orders', stringMe);
+			ordersFetch(ordersData);
+		},
+		[ ordersData, ordersFetch ]
+	);
 
 	useEffect(
 		() => {
 			updateStorageDatas();
 		},
-		[ ordersData ]
+		[ ordersData, updateStorageDatas ]
 	);
 
 	if (isAuthenticated) {
@@ -58,7 +61,6 @@ const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthentica
 				totalQty: totalQty
 			};
 			ordersSave(orders);
-			//console.log(orders);
 		};
 
 		return isLoaded === false || orders === null ? (
@@ -142,7 +144,7 @@ OrdersConfirm.propTypes = {
 	isLoaded: PropTypes.bool,
 	ordersFetch: PropTypes.func.isRequired,
 	ordersSave: PropTypes.func.isRequired,
-	isAuthenticated: PropTypes.bool.isRequired
+	isAuthenticated: PropTypes.bool
 };
 
 const mapStateToProps = (state) => ({

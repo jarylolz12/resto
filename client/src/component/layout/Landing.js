@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 const Landing = ({ isAuthenticated }) => {
 	if (isAuthenticated) {
 		return <Redirect to="/staffMenu" />;
@@ -10,26 +9,26 @@ const Landing = ({ isAuthenticated }) => {
 		return (
 			<Fragment>
 				<div id="landing">
-					<div className="landCont">
+					<div className="landing-cont">
 						<h1>Resto</h1>
 						<hr />
 						<p>It's a cruel witted taste</p>
 
 						<div>
 							<Link to="/myOrders" title="Customer Orders">
-								<button>Orders</button>
+								<button className="btn-wrapper-border">Orders</button>
 							</Link>
 							<Link to="/about" title="The Specification">
-								<button>About</button>
+								<button className="btn-wrapper-border">About</button>
 							</Link>
 							<Link to="/login" title="Please ask the admin for log-in Credentials">
-								<button>Staff Login</button>
+								<button className="btn-wrapper-border">Staff Login</button>
 							</Link>
 						</div>
 					</div>
 				</div>
 
-				<ul className="slideshow">
+				<ul className="slide-show">
 					<li />
 					<li />
 					<li />

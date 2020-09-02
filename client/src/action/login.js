@@ -20,7 +20,6 @@ export const actLogin = ({ email, password }) => async (dispatch) => {
 
 		//himoon json object ang data
 		const body = JSON.stringify(loginCredentials); //converto to json tung credetials nimo sa taas
-
 		//tawagon ang post route na login sa backend server (nodejs) para ma fetch ang data.
 		const res = await axios.post('/login', body, config); //tawagon sa axios ang server side para i compare ang data
 		//i store ang data nga imong g fetch nga data gikan sa axios paadto ddito sa redux state nga imong g set
@@ -37,7 +36,6 @@ export const actLogin = ({ email, password }) => async (dispatch) => {
 		//pag naay unod imong token, fetch niya ang data nga naka query sa backend.
 		//pag walay token (id) mag error ang server
 		const response = await axios.get('/auth');
-		console.log(response.data);
 		dispatch({
 			type: USER_LOAD,
 			payload: response.data
@@ -51,22 +49,22 @@ export const actLogin = ({ email, password }) => async (dispatch) => {
 	}
 };
 
+// optional in the future kung naa nay registration ang user
 export const loadUser = () => async (dispatch) => {
 	try {
 		const res = await axios.get('/auth');
-
-		dispatch({
-			type: USER_LOAD,
-			payload: res.data
-		});
+		if (res) {
+			dispatch({
+				type: USER_LOAD,
+				payload: res.data
+			});
+		}
 	} catch (err) {
 		const errors = err.response.data.errors;
 		if (errors) {
 			errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
 			dispatch({ type: LOGIN_FAIL });
 		}
-
-		//pag true ang is guest dapat is guest iyang i execute othewise lginfail
 	}
 };
 

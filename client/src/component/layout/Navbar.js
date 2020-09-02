@@ -1,114 +1,104 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logOut } from '../../action/login';
 import { updateFetchFlush } from '../../action/menuUpdate';
 const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, updateFetchFlush }) => {
+	const [ toggleData, setToggleData ] = useState('hide');
+
+	const classNameToggle = (e) => {
+		e.preventDefault();
+		toggleData === 'hide' ? setToggleData('show') : setToggleData('hide');
+	};
+
 	const { isAdmin, name } = user;
 
-	const adminLinks = (
-		<ul className="m-0">
-			<li className="nav-item dropdown">
+	const staffLinks = (
+		<Fragment>
+			<li className="navbar-menu-item">
 				<span>Logged in as: </span>
-				<button
-					className="nav-link dropdown-toggle p-0"
-					id="navbarDropdown"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false"
-					title="Options"
-				>
-					{name}
-				</button>
-				<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					<button className="dropdown-item">
-						<Link to="/register">Staff Register</Link>
-					</button>
-					<button className="dropdown-item">
-						<Link to="/menuNew">New</Link>
-					</button>
-					<button className="dropdown-item" onClick={logOut} href="/">
-						<Link to="/">Log Out</Link>
-					</button>
+			</li>
+			<li className="navbar-menu-item">
+				<button>{name}</button>
+				<div className="nav-dropdown">
+					<div className="nav-menu-dropdown">
+						<Link to="/ordersStaff">
+							<button className="nav-menu-dropdown-item btn-wrapper-border">Orders</button>
+						</Link>
+
+						<Link to="/menuNew">
+							<button className="nav-menu-dropdown-item btn-wrapper-border">New</button>
+						</Link>
+
+						<Link to="/">
+							<button className="nav-menu-dropdown-item btn-wrapper-border" onClick={logOut}>
+								Log Out
+							</button>
+						</Link>
+					</div>
 				</div>
 			</li>
-		</ul>
+		</Fragment>
 	);
 
-	const staffLinks = (
-		<ul className="m-0">
-			<li className="nav-item dropdown">
-				<span>Logged in as: </span>
-				<button
-					className="nav-link dropdown-toggle p-0"
-					id="navbarDropdown"
-					data-toggle="dropdown"
-					aria-haspopup="true"
-					aria-expanded="false"
-				>
-					{name}
-				</button>
-				<div className="dropdown-menu" aria-labelledby="navbarDropdown">
-					<button className="dropdown-item">
-						<Link to="/menuNew">New</Link>
+	const adminLinks = (
+		<Fragment>
+			<li className="navbar-menu-item">
+				<span>Logged in as:</span>
+			</li>
+			<li className="navbar-menu-item">
+				<div className="nav-dropdown">
+					<button onClick={(e) => classNameToggle(e)} className="btn-wrapper">
+						{name}
 					</button>
-					<button className="dropdown-item" onClick={logOut} href="/">
-						<Link to="/">Log Out</Link>
-					</button>
+					<div id={toggleData} className="nav-menu-dropdown">
+						<Link to="/register">
+							<button className="nav-menu-dropdown-item btn-wrapper-border">Staff Register</button>
+						</Link>
+
+						<Link to="/ordersStaff">
+							<button className="nav-menu-dropdown-item btn-wrapper-border">Orders</button>
+						</Link>
+
+						<Link to="/menuNew">
+							<button className="nav-menu-dropdown-item btn-wrapper-border">New</button>
+						</Link>
+
+						<Link to="/">
+							<button className="nav-menu-dropdown-item btn-wrapper-border" onClick={logOut}>
+								Log Out
+							</button>
+						</Link>
+					</div>
 				</div>
 			</li>
-		</ul>
+		</Fragment>
 	);
 
 	const landingLinks = (
 		<Fragment>
-			<ul className="m-0">
-				<li className="nav-item">
-					<span className="orderCounter">{!orderCount ? '' : orderCount}</span>
-					<Link to="/myOrdersConfirm" title="My Orders">
+			<li className="navbar-menu-item">
+				<span className="orderCounter">{!orderCount ? '' : orderCount}</span>
+				<Link to="/myOrdersConfirm" title="My Orders">
+					<button className="btn-wrapper">
 						<i className="fas fa-utensils" />
-					</Link>
-				</li>
-			</ul>
-		</Fragment>
-	);
-
-	const staffOptions = (
-		<Fragment>
-			<li className="nav-item" onClick={updateFetchFlush} title="Return to Menu Page">
-				<Link to="/staffMenu">Menu</Link>
-			</li>
-			<li className="nav-item" title="Proceed to Orders Page">
-				<Link to="/ordersStaff">Orders</Link>
+					</button>
+				</Link>
 			</li>
 		</Fragment>
 	);
 
 	return (
-		<nav className="navbar navbar-expand-lg navbar-dark p-2">
-			{/* <button className="navbar-brand p-0" href="/" title="Home"> */}
-			<Link to="/" className="navbar-brand p-0" title="Home">
+		<nav className="navbar">
+			<Link to="/" className="navbar-brand" title="Home">
 				<i className="fas fa-carrot" />
 			</Link>
 
-			{/* </button> */}
-			<button
-				className="navbar-toggler"
-				type="button"
-				data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent"
-				aria-expanded="false"
-				aria-label="Toggle navigation"
-			>
-				<span className="navbar-toggler-icon" />
-			</button>
-			<div className="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul className="navbar-nav mr-auto">{isAuthenticated && staffOptions}</ul>
+			<ul className="navbar-menu">
 				{loading && <Fragment>{landingLinks}</Fragment>}
 				{isAuthenticated && <Fragment>{isAdmin ? adminLinks : staffLinks}</Fragment>}
-			</div>
+			</ul>
 		</nav>
 	);
 };

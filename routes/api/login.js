@@ -20,10 +20,9 @@ router.post('/login', conft.loginValidation, async (req, res) => {
 		return res.status(422).json({ errors: err.array() });
 	}
 	const { email, password } = req.body;
-
 	try {
 		//user has incorrect credentials exists
-		let application = await User.findOne({ email });
+		let application = await User.findOne({ email: email });
 		if (!application) {
 			res.status(400).json({ errors: [ { msg: 'Invalid Credentials' } ] });
 		} else {
@@ -40,7 +39,7 @@ router.post('/login', conft.loginValidation, async (req, res) => {
 		};
 
 		//sign the payload and a token (jwt) -> ID Ang gigamit pang wrap sa token base sa const na payload
-		jwt.sign(payload.user, conft.jwts, { expiresIn: 36000 }, (err, token) => {
+		jwt.sign(payload.user, conft.jwts, { expiresIn: 3600 }, (err, token) => {
 			if (err) {
 				console.log(err);
 			} else {

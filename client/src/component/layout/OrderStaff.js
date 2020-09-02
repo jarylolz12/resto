@@ -52,15 +52,17 @@ const OrderStaff = ({ actStaffOrdersData, actStaffOrderUpdate, ordersStaff, isLo
 							</li>
 							<li>
 								<form onSubmit={(e) => setStatus(e, custOrders._id)}>
-									<select name="ordStatus">
-										<option defaultValue="">{custOrders.status}</option>
-										<option defaultValue="Preparing">Preparing</option>
-										<option defaultValue="Prepared">Prepared</option>
-										<option defaultValue="Served">Served</option>
-										<option defaultValue="Cancelled">Cancelled</option>
+									<select name="ordStatus" readOnly={true}>
+										<option value="" readOnly={true}>
+											{custOrders.status}
+										</option>
+										<option value="Preparing">Preparing</option>
+										<option value="Prepared">Prepared</option>
+										<option value="Served">Served</option>
+										<option value="Cancelled">Cancelled</option>
 									</select>
 
-									<input type="Submit" name="Update" value="Update" />
+									<button className="submit">Submit</button>
 								</form>
 							</li>
 						</div>

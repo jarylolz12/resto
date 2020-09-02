@@ -10,6 +10,9 @@ import {
 
 export const actFetchUpdate = (id) => async (dispatch) => {
 	try {
+		if (id.id === '') {
+			return;
+		}
 		const res = await axios.get(`/menu/${id}`);
 		dispatch({
 			type: UPDATEMENU_FETCH,

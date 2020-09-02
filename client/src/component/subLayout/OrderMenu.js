@@ -10,9 +10,9 @@ const OrderMenu = ({ menu, category, ordersFetch }) => {
 		const getSession = sessionStorage.getItem('orders');
 		if (getSession) {
 			return JSON.parse(getSession);
+		} else {
+			return [];
 		}
-
-		return [];
 	});
 	//i try sa imong state mag run kag function nga mag return ug blank na array or i fetch nimo tung sulod sa session storage
 	//i filter ang mga pareho nga id sa orders gamit ang map na loop
@@ -27,7 +27,6 @@ const OrderMenu = ({ menu, category, ordersFetch }) => {
 					}
 					return { ...order };
 				});
-
 				setOrderData(addQty);
 			} else {
 				setOrderData([ ...orderData, { id, name, price, category, qty, newPrice: price } ]);
@@ -50,13 +49,13 @@ const OrderMenu = ({ menu, category, ordersFetch }) => {
 	) : (
 		<Fragment>
 			{category.map((categorize) => (
-				<div className="menuCategory" key={categorize._id}>
+				<div className="menu-category" key={categorize._id}>
 					<h2>{categorize.mnuCategory}</h2>
 
 					{menu.map(
 						(putahe) =>
 							categorize._id === putahe.mnuCategory[0]._id && (
-								<ul className="itemName" key={putahe._id}>
+								<ul className="menu-item-putahe" key={putahe._id}>
 									<li title="Add to order">
 										<button
 											onClick={() =>
