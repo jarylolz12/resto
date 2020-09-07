@@ -58,6 +58,7 @@ const OrderMenu = ({ menu, category, ordersFetch }) => {
 								<ul className="menu-item-putahe" key={putahe._id}>
 									<li title="Add to order">
 										<button
+											className="btn-wrapper-transparent"
 											onClick={() =>
 												onClick(
 													putahe._id,

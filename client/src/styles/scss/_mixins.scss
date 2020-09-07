@@ -1,14 +1,29 @@
 @import 'config';
 
-@mixin flex-row-spc-btwn {
-	display: flex;
-	justify-content: space-between;
-	flex-flow: row;
+@function set-txt-color($color) {
+	@if (lightness($color) > 30) {
+		@return $dark;
+	} @else {
+		@return $light;
+	}
 }
 
-@mixin flex-row-spc-arnd {
+@mixin set-bg ($color) {
+	background-color: $color;
+	color: set-txt-color($color);
+}
+
+@mixin grid-container {
+	display: grid;
+	grid-template-columns: 30% 30% 30%;
+	grid-gap: 20px;
+	justify-content: center;
+	align-content: center;
+}
+
+@mixin flex-row {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	flex-flow: row;
 }
 
@@ -18,12 +33,10 @@
 	flex-flow: column;
 }
 
-@mixin btn-transparent {
-	background-color: transparent;
-	color: $primary-color;
-	&:hover {
-		color: $hover-color;
-	}
+@mixin btn {
+	border: none;
+	font: inherit;
+	transition: background-color, color, 200ms;
 }
 
 @mixin input-designs {

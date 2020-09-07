@@ -20,21 +20,23 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 				<span>Logged in as: </span>
 			</li>
 			<li className="navbar-menu-item">
-				<button>{name}</button>
-				<div className="nav-dropdown">
-					<div className="nav-menu-dropdown">
-						<Link to="/ordersStaff">
-							<button className="nav-menu-dropdown-item btn-wrapper-border">Orders</button>
+				<button onClick={(e) => classNameToggle(e)}>{name}</button>
+				<div id={toggleData} className="nav-menu-dropdown">
+					<div className="nav-menu-dropdown-item">
+						<Link to="/ordersStaff" className="btn-wrapper dark">
+							Orders
 						</Link>
+					</div>
 
-						<Link to="/menuNew">
-							<button className="nav-menu-dropdown-item btn-wrapper-border">New</button>
+					<div className="nav-menu-dropdown-item">
+						<Link to="/menuNew" className="btn-wrapper dark">
+							New
 						</Link>
+					</div>
 
-						<Link to="/">
-							<button className="nav-menu-dropdown-item btn-wrapper-border" onClick={logOut}>
-								Log Out
-							</button>
+					<div className="nav-menu-dropdown-item">
+						<Link to="/" className="btn-wrapper dark" onClick={logOut}>
+							Log Out
 						</Link>
 					</div>
 				</div>
@@ -49,27 +51,33 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 			</li>
 			<li className="navbar-menu-item">
 				<div className="nav-dropdown">
-					<button onClick={(e) => classNameToggle(e)} className="btn-wrapper">
+					<button onClick={(e) => classNameToggle(e)} className="btn-wrapper-transparent ">
 						{name}
 					</button>
-					<div id={toggleData} className="nav-menu-dropdown">
-						<Link to="/register">
-							<button className="nav-menu-dropdown-item btn-wrapper-border">Staff Register</button>
-						</Link>
+					<div id={toggleData} onMouseLeave={(e) => classNameToggle(e)} className="nav-menu-dropdown">
+						<div className="nav-menu-dropdown-item">
+							<Link to="/register" className="btn-wrapper dark">
+								Staff Register
+							</Link>
+						</div>
 
-						<Link to="/ordersStaff">
-							<button className="nav-menu-dropdown-item btn-wrapper-border">Orders</button>
-						</Link>
+						<div className="nav-menu-dropdown-item">
+							<Link to="/ordersStaff" className="btn-wrapper dark">
+								Orders
+							</Link>
+						</div>
 
-						<Link to="/menuNew">
-							<button className="nav-menu-dropdown-item btn-wrapper-border">New</button>
-						</Link>
+						<div className="nav-menu-dropdown-item">
+							<Link to="/menuNew" className="btn-wrapper dark">
+								New
+							</Link>
+						</div>
 
-						<Link to="/">
-							<button className="nav-menu-dropdown-item btn-wrapper-border" onClick={logOut}>
+						<div className="nav-menu-dropdown-item">
+							<Link to="/" className="btn-wrapper dark" onClick={logOut}>
 								Log Out
-							</button>
-						</Link>
+							</Link>
+						</div>
 					</div>
 				</div>
 			</li>
@@ -80,22 +88,31 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 		<Fragment>
 			<li className="navbar-menu-item">
 				<span className="orderCounter">{!orderCount ? '' : orderCount}</span>
-				<Link to="/myOrdersConfirm" title="My Orders">
-					<button className="btn-wrapper">
-						<i className="fas fa-utensils" />
-					</button>
+				<Link
+					to="/myOrdersConfirm"
+					title="My Orders"
+					className="btn-wrapper-transparent"
+					style={orderCount === 0 ? { display: 'none' } : { display: 'inline' }}
+				>
+					<i className="fas fa-utensils" />
 				</Link>
 			</li>
 		</Fragment>
 	);
 
 	return (
-		<nav className="navbar">
-			<Link to="/" className="navbar-brand" title="Home">
+		<nav className="flex-container navbar">
+			<Link
+				to="/"
+				className="navbar-brand"
+				title="Home"
+				className="btn-wrapper-transparent"
+				onClick={updateFetchFlush}
+			>
 				<i className="fas fa-carrot" />
 			</Link>
 
-			<ul className="navbar-menu">
+			<ul className="navbar-menu flex-container">
 				{loading && <Fragment>{landingLinks}</Fragment>}
 				{isAuthenticated && <Fragment>{isAdmin ? adminLinks : staffLinks}</Fragment>}
 			</ul>

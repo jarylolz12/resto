@@ -1,0 +1,152 @@
+@media only screen and (min-width: 700px) and (max-width: 1300px) {
+	.container {
+		width: 95%;
+		padding: 0;
+	}
+
+	.grid-container {
+		grid-template-columns: 48% 48%;
+		grid-gap: 20px 20px;
+	}
+
+	.form-global {
+		width: 100%;
+
+		> table {
+			th,
+			td {
+				padding: 2%;
+			}
+		}
+	}
+
+	.about-page {
+		width: 85%;
+		padding: $small;
+		margin: auto;
+
+		.article,
+		.aside {
+			margin: $small;
+		}
+
+		a {
+			display: block;
+			margin: auto auto 20px auto;
+			text-align: center;
+		}
+	}
+
+	.nav-menu-dropdown {
+		position: absolute;
+		right: 0;
+		top: 100%;
+	}
+}
+
+@media only screen and (max-width: 700px) {
+	#landing {
+		.landing-cont {
+			padding: $x-small;
+			> p {
+				margin: 0;
+			}
+			> hr {
+				width: 70%;
+			}
+		}
+
+		.flex-container-row-arnd {
+			flex-direction: column;
+			padding: 0;
+			> .btn-wrapper {
+				margin: .3rem 0;
+			}
+		}
+	}
+
+	.nav-menu-dropdown {
+		position: absolute;
+		right: 0;
+		top: 105%;
+	}
+
+	.container {
+		width: 97%;
+	}
+
+	.grid-container {
+		grid-template-columns: 100%;
+		grid-gap: 15px 15px;
+
+		.menu-category {
+			font-size: .94rem;
+		}
+	}
+
+	.form-global {
+		width: 100%;
+		//force the table and int's content to be block element
+		table,
+		tbody,
+		th,
+		td,
+		tr {
+			display: block;
+		}
+		//removing the table headers
+		tbody > tr:nth-of-type(1) {
+			margin: 0;
+			padding: 0;
+
+			th {
+				display: none;
+			}
+		}
+		//set the table row to flexbox
+		tr {
+			display: flex;
+			flex-flow: row;
+			flex-wrap: wrap;
+			padding: 5px;
+			align-items: center;
+
+			//set the new properties of the table display accoring to size of UI
+			td {
+				width: 50%;
+				padding: 5px;
+
+				button {
+					margin-left: 3px;
+				}
+			}
+
+			& .qty-counter {
+				padding: 0;
+			}
+
+			td > .btn-wrapper-standard {
+				margin: 0;
+			}
+		}
+	}
+
+	// about
+
+	.about-page {
+		width: 100%;
+		margin: $x-small auto auto auto;
+		padding: .5em;
+
+		.article,
+		.aside {
+			margin: $x-small;
+		}
+
+		.about-specs {
+			ul {
+				width: 30%;
+			}
+		}
+	}
+}

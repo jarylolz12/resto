@@ -24,20 +24,19 @@ $image-lists: (
 		height: 100vh;
 
 		p {
-			color: $primary-color;
-			margin: 0 0 10px 0;
 			font-size: 1.3rem;
 		}
 
 		hr {
-			width: 25rem;
-			color: $primary-color;
-			margin: 10px 0 10px 0;
+			width: 30rem;
+			margin: $x-small;
 		}
 
-		button {
-			margin: $x-small $x-small;
-			width: 10rem;
+		.land-options {
+			margin: $x-small;
+			> .btn-wrapper {
+				margin: 0 $x-small;
+			}
 		}
 	}
 }

@@ -14,15 +14,19 @@ const Landing = ({ isAuthenticated }) => {
 						<hr />
 						<p>It's a cruel witted taste</p>
 
-						<div>
-							<Link to="/myOrders" title="Customer Orders">
-								<button className="btn-wrapper-border">Orders</button>
+						<div className="land-options">
+							<Link to="/myOrders" title="Customer Orders" className="btn-wrapper dark">
+								Orders
 							</Link>
-							<Link to="/about" title="The Specification">
-								<button className="btn-wrapper-border">About</button>
+							<Link to="/about" title="The Specification" className="btn-wrapper dark">
+								About
 							</Link>
-							<Link to="/login" title="Please ask the admin for log-in Credentials">
-								<button className="btn-wrapper-border">Staff Login</button>
+							<Link
+								to="/login"
+								title="Please ask the admin for log-in Credentials"
+								className="btn-wrapper dark"
+							>
+								Staff Login
 							</Link>
 						</div>
 					</div>

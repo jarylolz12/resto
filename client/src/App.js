@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './styles/App.css';
+// import './styles/App.css';
 import './styles/css/App.css';
 import About from './component/layout/About';
 import Navbar from './component/layout/Navbar';

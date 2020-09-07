@@ -21,7 +21,7 @@ const Orders = ({ actCategory, actMenu, isAuthenticated }) => {
 		return (
 			<Fragment>
 				<h1>Menu</h1>
-				<div className="menu-flex-container">
+				<div className="grid-container">
 					<OrderMenu />
 				</div>
 			</Fragment>

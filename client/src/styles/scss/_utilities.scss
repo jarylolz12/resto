@@ -1,13 +1,13 @@
 @import 'mixins';
 @import 'config';
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	color: $primary-color;
-}
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+// 	color: $primary;
+// }
 
 * {
 	box-sizing: border-box;
@@ -17,21 +17,15 @@ h6 {
 
 ul {
 	list-style: none;
-	color: $primary-color;
 }
 
 a {
 	text-decoration: none;
-	color: $primary-color;
-
-	&:hover {
-		color: $hover-color;
-	}
 }
 
 body {
 	font-family: 'Raleway', sans-serif;
-	background-color: $body;
+	@include set-bg($light);
 }
 
 #show {
@@ -49,18 +43,56 @@ body {
 	text-align: center;
 }
 
+.grid-container {
+	@include grid-container;
+}
+
+.flex-container {
+	@include flex-row;
+}
+
+.flex-container-col {
+	@include flex-col;
+}
+
 .btn-wrapper {
-	border: none;
-	@include btn-transparent;
+	@include btn;
+	padding: 10px;
+	width: 8rem;
+	display: inline-block;
+	&:hover {
+		@include set-bg($primary);
+	}
+	// &:disabled {
+	// 	color: red;
+	// }
+}
+
+.btn-wrapper-transparent {
+	@include btn;
+	@include set-bg(transparent);
+
+	&:hover {
+		color: $primary;
+	}
+}
+
+.dark {
+	@include set-bg($dark);
+}
+
+.light {
+	@include set-bg ($light);
 }
 
 .btn-wrapper-border {
+	//tangala ni--------------
 	padding: $x-small;
-	border: $borders $primary-color;
-	@include btn-transparent;
+	// border: $borders $primary-color;
+	// @include btn-transparent;
 
 	&:hover {
-		background-color: $primary-color;
+		// background-color: $primary-color;
 	}
 }
 
@@ -68,11 +100,11 @@ body {
 	width: 50%;
 	margin: auto;
 	text-align: center;
-	background-color: $body;
+	// background-color: $body;
 	border-radius: 10px;
 
 	h2 {
-		color: $primary-color;
+		// color: $primary-color;
 	}
 
 	.form-family {

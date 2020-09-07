@@ -5,7 +5,7 @@ const Menu = () => {
 	return (
 		<Fragment>
 			<h2>Menu</h2>
-			<div className="menu-flex-container">
+			<div className="grid-container">
 				<StaffMenu />
 			</div>
 		</Fragment>

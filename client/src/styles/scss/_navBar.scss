@@ -2,22 +2,16 @@
 @import 'mixins';
 
 .navbar {
-	background-color: $body-dark;
+	@include set-bg($dark);
 	padding: 1rem;
-	@include flex-row-spc-btwn;
-
-	&-brand {
-		color: $primary-color;
-		&:hover {
-			color: $hover-color;
-		}
-	}
 
 	&-menu {
-		@include flex-row-spc-btwn;
-
 		&-item {
-			margin-right: px;
+			margin-left: 10px;
+
+			> .order-counter {
+				color: red;
+			}
 		}
 	}
 }
@@ -27,15 +21,20 @@
 }
 
 .nav-menu-dropdown {
-	position: absolute;
+	position: fixed;
 	right: 0px;
-	top: 25px;
+	top: 40px;
 	width: 200px;
-	background-color: $body;
 	z-index: 1;
+	border: 1px solid $primary;
 
 	&-item {
-		display: inline-block;
 		width: 100%;
+		text-align: center;
+		display: block;
+		margin: 0;
+		.btn-wrapper {
+			width: inherit;
+		}
 	}
 }
