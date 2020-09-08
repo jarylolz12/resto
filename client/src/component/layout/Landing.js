@@ -14,7 +14,7 @@ const Landing = ({ isAuthenticated }) => {
 						<hr />
 						<p>It's a cruel witted taste</p>
 
-						<div className="land-options">
+						<div className="land-options flex-container">
 							<Link to="/myOrders" title="Customer Orders" className="btn-wrapper dark">
 								Orders
 							</Link>

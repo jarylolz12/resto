@@ -40,18 +40,18 @@ const CategoryNew = ({ actCategoryNew, category, updateFetchFlush, actCategory }
 	// );
 
 	return (
-		<div className="login">
+		<div className="form-global">
 			<h2>New Category</h2>
 
-			<div className="catDisp">
+			{/* <div className="catDisp">
 				<h4>Existing Categories</h4>
 				<ul className="catList">
 					{category.map((categorize) => <li key={categorize._id}>○ {categorize.mnuCategory}</li>)}
 				</ul>
-			</div>
+			</div> */}
 
 			<form onSubmit={(e) => onSubmit(e)}>
-				<div className="form-group">
+				<div className="form-family">
 					<input
 						type="text"
 						name="mnuCategory"
@@ -60,10 +60,12 @@ const CategoryNew = ({ actCategoryNew, category, updateFetchFlush, actCategory }
 						onChange={(e) => onChange(e)}
 					/>
 				</div>
-				<input type="submit" value="Submit" />
-				<Link to="/staffMenu" onClick={updateFetchFlush}>
-					<input type="submit" value="Back" style={{ marginLeft: '10px' }} />
-				</Link>
+				<div className="form-family">
+					<Link to="/staffMenu" onClick={updateFetchFlush} className="btn-wrapper danger">
+						Back
+					</Link>
+					<input type="submit" value="Submit" className="btn-wrapper success" />
+				</div>
 			</form>
 		</div>
 	);

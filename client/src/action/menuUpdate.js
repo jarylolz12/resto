@@ -28,7 +28,7 @@ export const actFetchUpdate = (id) => async (dispatch) => {
 };
 
 export const actMenuUpdate = (newUpdate) => async (dispatch) => {
-	const { mnuName, mnuCategory, mnuPrice, _id } = newUpdate;
+	const { mnuName, mnuCategory, mnuPrice, id } = newUpdate;
 
 	const toBeUpdated = {
 		mnuName,
@@ -45,7 +45,7 @@ export const actMenuUpdate = (newUpdate) => async (dispatch) => {
 
 		const body = JSON.stringify(toBeUpdated);
 
-		const res = await axios.put(`/menu/${_id}/updt`, body, config);
+		const res = await axios.put(`/menu/${id}/updt`, body, config);
 
 		dispatch({
 			type: UPDATEMENU_SAVE,

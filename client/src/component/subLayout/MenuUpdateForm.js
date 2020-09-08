@@ -25,7 +25,7 @@ const MenuUpdateForm = ({ menuUpdateFetch, category, updateFetchFlush, actMenuUp
 	) : (
 		<Fragment>
 			<form onSubmit={(e) => onSubmit(e)}>
-				<div className="form-group">
+				<div className="form-family">
 					<input
 						type="text"
 						name="mnuName"
@@ -35,7 +35,7 @@ const MenuUpdateForm = ({ menuUpdateFetch, category, updateFetchFlush, actMenuUp
 					/>
 				</div>
 
-				<div className="form-group">
+				<div className="form-family">
 					<select name="mnuCategory" onChange={(e) => onChange(e)} className="opt">
 						<option defaultValue={mnuCategory}>{mnuCategory}</option>
 						{category.map((categorize) => (
@@ -50,7 +50,7 @@ const MenuUpdateForm = ({ menuUpdateFetch, category, updateFetchFlush, actMenuUp
 					</select>
 				</div>
 
-				<div className="form-group">
+				<div className="form-family">
 					<input
 						type="text"
 						name="mnuPrice"
@@ -59,11 +59,12 @@ const MenuUpdateForm = ({ menuUpdateFetch, category, updateFetchFlush, actMenuUp
 						onChange={(e) => onChange(e)}
 					/>
 				</div>
-				<input type="submit" value="Submit" style={{ marginRight: '10px' }} />
-
-				<Link to="/staffMenu" onClick={updateFetchFlush}>
-					<input type="submit" value="Back" />
-				</Link>
+				<div className="form-family">
+					<Link to="/staffMenu" onClick={updateFetchFlush} className="btn-wrapper danger">
+						Back
+					</Link>
+					<input type="submit" value="Submit" className="btn-wrapper success" />
+				</div>
 			</form>
 		</Fragment>
 	);

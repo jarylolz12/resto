@@ -20,24 +20,28 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 				<span>Logged in as: </span>
 			</li>
 			<li className="navbar-menu-item">
-				<button onClick={(e) => classNameToggle(e)}>{name}</button>
-				<div id={toggleData} className="nav-menu-dropdown">
-					<div className="nav-menu-dropdown-item">
-						<Link to="/ordersStaff" className="btn-wrapper dark">
-							Orders
-						</Link>
-					</div>
+				<div className="nav-dropdown">
+					<button onClick={(e) => classNameToggle(e)} className="btn-wrapper-transparent ">
+						{name}
+					</button>
+					<div id={toggleData} onMouseLeave={(e) => classNameToggle(e)} className="nav-menu-dropdown">
+						<div className="nav-menu-dropdown-item">
+							<Link to="/ordersStaff" className="btn-wrapper dark">
+								Orders
+							</Link>
+						</div>
 
-					<div className="nav-menu-dropdown-item">
-						<Link to="/menuNew" className="btn-wrapper dark">
-							New
-						</Link>
-					</div>
+						<div className="nav-menu-dropdown-item">
+							<Link to="/menuNew" className="btn-wrapper dark">
+								New
+							</Link>
+						</div>
 
-					<div className="nav-menu-dropdown-item">
-						<Link to="/" className="btn-wrapper dark" onClick={logOut}>
-							Log Out
-						</Link>
+						<div className="nav-menu-dropdown-item">
+							<Link to="/" className="btn-wrapper danger" onClick={logOut}>
+								Log Out
+							</Link>
+						</div>
 					</div>
 				</div>
 			</li>
@@ -74,7 +78,7 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 						</div>
 
 						<div className="nav-menu-dropdown-item">
-							<Link to="/" className="btn-wrapper dark" onClick={logOut}>
+							<Link to="/" className="btn-wrapper danger" onClick={logOut}>
 								Log Out
 							</Link>
 						</div>
@@ -102,13 +106,7 @@ const Navbar = ({ auth: { user, isAuthenticated, loading }, logOut, orderCount, 
 
 	return (
 		<nav className="flex-container navbar">
-			<Link
-				to="/"
-				className="navbar-brand"
-				title="Home"
-				className="btn-wrapper-transparent"
-				onClick={updateFetchFlush}
-			>
+			<Link to="/" title="Home" className="btn-wrapper-transparent" onClick={updateFetchFlush}>
 				<i className="fas fa-carrot" />
 			</Link>
 

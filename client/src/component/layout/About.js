@@ -89,8 +89,8 @@ const About = () => {
 					</div>
 				</article>
 
-				<Link to="/">
-					<button className="btn-wrapper-border">Back</button>
+				<Link to="/" className="btn-wrapper dark">
+					Back
 				</Link>
 			</section>
 		</Fragment>

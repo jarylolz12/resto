@@ -1,15 +1,12 @@
-$primary: #2bacc6;
-// $hover-color: darken($primary-color, 20%);
+$primary: #48a9f1;
 $light: #f7f7f7;
 $dark: #17202a;
-$danger: #dc143c;
+$disabled: lighten($dark, 10%);
+$danger: #a00107;
 $success: #2e8b57;
-$shadow: 9px 6px 15px $dark;
+$shadow: 9px 10px 10px darken($light, 20%);
 $radius: 10px;
-$borders: 2px solid;
-
-// $body: darken(#f7f7f7, 5%);
-// $body-dark: #17202a;
+$borders: 1px solid $primary;
 
 // units
 $x-small: 0.5rem;
@@ -17,18 +14,3 @@ $small: 1rem;
 $medium: 2rem;
 $large: 3rem;
 $x-large: 5rem;
-
-//maghimo kag separate body scss kay nagstack ang * ug body sa devtools
-//tangalla ang bootstrap then i refactor ang navigationbar
-
-// :root {
-// 	--shadow: 9px 6px 15px #c6c6c6;
-// 	--standard: #3d7f95;
-// 	--headers: #5177b2;
-// 	--boxcolor: #cdcdcd;
-// 	--hover: #72cce8;
-// 	--borders: 1px solid #c6c6c6;
-// 	--danger: #dc143c;
-// 	--success: #2e8b57;
-// 	--body: #f7f7f7;
-// }

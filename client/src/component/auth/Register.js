@@ -25,13 +25,13 @@ const Register = ({ actRegister, isAdmin }) => {
 
 	return (
 		<Fragment>
-			<div className="login">
+			<div className="form-global">
 				<h2>Register</h2>
 				<form onSubmit={(e) => onSubmit(e)}>
-					<div className="form-group">
+					<div className="form-family">
 						<input type="text" name="name" placeholder="Name" value={name} onChange={(e) => onChange(e)} />
 					</div>
-					<div className="form-group">
+					<div className="form-family">
 						<input
 							type="email"
 							name="email"
@@ -40,7 +40,7 @@ const Register = ({ actRegister, isAdmin }) => {
 							onChange={(e) => onChange(e)}
 						/>
 					</div>
-					<div className="form-group">
+					<div className="form-family">
 						<input
 							type="password"
 							name="password"
@@ -49,7 +49,7 @@ const Register = ({ actRegister, isAdmin }) => {
 							onChange={(e) => onChange(e)}
 						/>
 					</div>
-					<input type="submit" value="Register" />
+					<input type="submit" value="Register" className="btn-wrapper dark" />
 				</form>
 			</div>
 		</Fragment>

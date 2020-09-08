@@ -4,10 +4,12 @@
 .navbar {
 	@include set-bg($dark);
 	padding: 1rem;
+	border-bottom: $borders;
+	margin-bottom: $medium;
 
 	&-menu {
 		&-item {
-			margin-left: 10px;
+			margin-left: 5px;
 
 			> .order-counter {
 				color: red;

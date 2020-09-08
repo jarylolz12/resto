@@ -38,32 +38,30 @@ const Login = ({ actLogin, isAuthenticated }) => {
 
 	return (
 		<Fragment>
-			<div className="container">
-				<div className="login">
-					<h2>Login</h2>
-					<form onSubmit={(e) => onSubmit(e)}>
-						<div className="form-group">
-							<input
-								type="text"
-								name="email"
-								placeholder="Email"
-								value={email} //equivalent data sila sa formdata nga imong g deconstruct sa taas
-								onChange={(e) => onChange(e)} //himo kag event handler/function para ma set/fetch nimo ang values sa textfield paadto sa empty object nga formData sa taas.
-								//i handle sa nimo ang event para maka type ka sa textfield
-							/>
-						</div>
-						<div className="form-group">
-							<input
-								type="password"
-								name="password"
-								placeholder="Password"
-								value={password}
-								onChange={(e) => onChange(e)}
-							/>
-						</div>
-						<input type="submit" value="Submit" />
-					</form>
-				</div>
+			<div className="form-global">
+				<h2>Login</h2>
+				<form onSubmit={(e) => onSubmit(e)}>
+					<div className="form-family">
+						<input
+							type="text"
+							name="email"
+							placeholder="Email"
+							value={email} //equivalent data sila sa formdata nga imong g deconstruct sa taas
+							onChange={(e) => onChange(e)} //himo kag event handler/function para ma set/fetch nimo ang values sa textfield paadto sa empty object nga formData sa taas.
+							//i handle sa nimo ang event para maka type ka sa textfield
+						/>
+					</div>
+					<div className="form-family">
+						<input
+							type="password"
+							name="password"
+							placeholder="Password"
+							value={password}
+							onChange={(e) => onChange(e)}
+						/>
+					</div>
+					<input type="submit" value="Submit" className="btn-wrapper dark" />
+				</form>
 			</div>
 		</Fragment>
 	);

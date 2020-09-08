@@ -10,7 +10,7 @@
 	}
 
 	.form-global {
-		width: 100%;
+		width: 95%;
 
 		> table {
 			th,
@@ -38,9 +38,8 @@
 	}
 
 	.nav-menu-dropdown {
-		position: absolute;
-		right: 0;
-		top: 100%;
+		position: fixed;
+		top: 4%;
 	}
 }
 
@@ -56,19 +55,10 @@
 			}
 		}
 
-		.flex-container-row-arnd {
+		.flex-container {
 			flex-direction: column;
 			padding: 0;
-			> .btn-wrapper {
-				margin: .3rem 0;
-			}
 		}
-	}
-
-	.nav-menu-dropdown {
-		position: absolute;
-		right: 0;
-		top: 105%;
 	}
 
 	.container {
@@ -123,16 +113,19 @@
 
 			& .qty-counter {
 				padding: 0;
+
+				> .btn-wrapper {
+					margin: 0;
+				}
 			}
 
-			td > .btn-wrapper-standard {
-				margin: 0;
+			td > .btn-wrapper {
+				width: 100%;
 			}
 		}
 	}
 
 	// about
-
 	.about-page {
 		width: 100%;
 		margin: $x-small auto auto auto;

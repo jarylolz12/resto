@@ -66,74 +66,88 @@ const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthentica
 		return isLoaded === false || orders === null ? (
 			<LoadingSpin />
 		) : (
-			<div className="container">
-				<div className="orderForm">
-					<h2>Checkout</h2>
-					<form onSubmit={(e) => onSubmit(e)}>
-						<table>
-							<tbody>
-								<tr>
-									<th>
-										<h4>Order</h4>
-									</th>
-									<th>
-										<h4>Category</h4>
-									</th>
-									<th>
-										<h4>QTY</h4>
-									</th>
-									<th>
-										<h4>Price</h4>
-									</th>
-								</tr>
-								{ordersData.map((order) => (
-									<tr key={order.id.substr(10)}>
-										<td>{order.name}</td>
-										<td>{order.category}</td>
-										<td>
+			<div className="form-global">
+				<h2>Checkout</h2>
+				<form onSubmit={(e) => onSubmit(e)}>
+					<table>
+						<tbody>
+							<tr>
+								<th>
+									<h4>Order</h4>
+								</th>
+								<th>
+									<h4>Category</h4>
+								</th>
+								<th>
+									<h4>QTY</h4>
+								</th>
+								<th>
+									<h4>Price</h4>
+								</th>
+							</tr>
+							{ordersData.map((order) => (
+								<tr key={order.id.substr(10)}>
+									<td>{order.name}</td>
+									<td>{order.category}</td>
+									<td>
+										<div className="qty-counter">
 											<button
 												onClick={(e) => onUpdate(e, order.id, order.qty - 1)}
 												disabled={order.qty <= 1}
 												title="Deduct 1"
+												className="btn-wrapper dark"
 											>
 												-
 											</button>
 											<input type="text" name="orderQty" value={order.qty} readOnly={true} />
-											<button title="Add 1" onClick={(e) => onUpdate(e, order.id, order.qty + 1)}>
+											<button
+												title="Add 1"
+												onClick={(e) => onUpdate(e, order.id, order.qty + 1)}
+												className="btn-wrapper dark"
+											>
 												+
 											</button>
-										</td>
-										<td>
-											{order.price * order.qty}
-											<button onClick={(e) => onDelete(e, order.id)} title="Cancel">
-												<i className="fas fa-times-circle" />
-											</button>
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-
-						<table>
-							<tbody>
-								<tr>
-									<th />
-									<th />
-									<th>
-										<h4 style={{ textAlign: 'right' }}>Overall Total:</h4>
-									</th>
-									<th>
-										<h4 style={{ textAlign: 'left' }}>{overallTotal}</h4>
-									</th>
+										</div>
+									</td>
+									<td>
+										{order.price * order.qty}
+										<button
+											onClick={(e) => onDelete(e, order.id)}
+											title="Cancel"
+											className="btn-wrapper-transparent"
+										>
+											<i className="fas fa-times" />
+										</button>
+									</td>
 								</tr>
-							</tbody>
-						</table>
-						<input title="Generate Claim Stub" type="submit" value="Proceed" disabled={overallTotal <= 1} />
-						<Link to="/myOrders">
-							<input type="submit" value="Back" title="Return" />
-						</Link>
-					</form>
-				</div>
+							))}
+						</tbody>
+						<tbody>
+							<tr>
+								<td>
+									<Link to="/myOrders" className="btn-wrapper danger">
+										Back
+									</Link>
+								</td>
+								<td>
+									<input
+										className="btn-wrapper success"
+										title="Generate Claim Stub"
+										type="submit"
+										value="Proceed"
+										disabled={overallTotal <= 1}
+									/>
+								</td>
+								<td>
+									<h4>Overall Total:</h4>
+								</td>
+								<td>
+									<h4>{overallTotal}</h4>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
 			</div>
 		);
 	}

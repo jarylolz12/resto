@@ -41,18 +41,18 @@ body {
 	margin: auto;
 	padding: 0 $medium;
 	text-align: center;
+	overflow: hidden;
 }
 
 .grid-container {
 	@include grid-container;
+	overflow: hidden;
+	margin: $medium 0;
 }
 
 .flex-container {
 	@include flex-row;
-}
-
-.flex-container-col {
-	@include flex-col;
+	overflow: hidden;
 }
 
 .btn-wrapper {
@@ -63,9 +63,13 @@ body {
 	&:hover {
 		@include set-bg($primary);
 	}
-	// &:disabled {
-	// 	color: red;
-	// }
+	&:disabled {
+		@include set-bg($disabled);
+	}
+}
+
+.fa-times {
+	@include set-color($danger);
 }
 
 .btn-wrapper-transparent {
@@ -85,34 +89,74 @@ body {
 	@include set-bg ($light);
 }
 
-.btn-wrapper-border {
-	//tangala ni--------------
-	padding: $x-small;
-	// border: $borders $primary-color;
-	// @include btn-transparent;
+.danger {
+	@include set-bg ($danger);
+}
 
-	&:hover {
-		// background-color: $primary-color;
-	}
+.success {
+	@include set-bg ($success);
+}
+
+.alert {
+	background-image: linear-gradient(transparent, $dark);
+	padding: 1rem;
+	margin: 1rem auto;
+	width: inherit;
+	text-align: center;
+	border-radius: $radius;
+	font-size: 20px;
 }
 
 .form-global {
-	width: 50%;
-	margin: auto;
+	width: 60%;
+	margin: $medium auto;
 	text-align: center;
-	// background-color: $body;
+	@include set-bg(darken($light, 10%));
 	border-radius: 10px;
-
-	h2 {
-		// color: $primary-color;
-	}
+	border: $borders;
+	padding: $small;
+	box-shadow: $shadow;
+	overflow: hidden;
 
 	.form-family {
-		width: 90%;
+		width: 95%;
 		display: block;
-		// padding: $spacing;
-		margin: auto;
+		margin: $small auto;
 
 		@include input-designs;
+	}
+
+	table {
+		width: 100%;
+		margin: auto;
+		border-collapse: collapse;
+		text-align: center;
+
+		th,
+		td {
+			width: 15rem;
+			padding: $x-small;
+		}
+
+		tr:nth-child(even) {
+			@include set-bg(darken($light, 15%));
+		}
+
+		.qty-counter {
+			width: 100%;
+			margin: auto;
+			.btn-wrapper {
+				width: 30px;
+			}
+
+			input[type='text'] {
+				text-align: center;
+				width: 30px;
+				font-size: $small;
+				border: $borders;
+				margin: auto $x-small;
+				padding: $x-small;
+			}
+		}
 	}
 }

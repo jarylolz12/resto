@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { actMenuNew } from '../../action/menuNew';
 import { updateFetchFlush } from '../../action/menuUpdate';
@@ -32,12 +32,12 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 	//kung kaya maka add naka sa category ug bagong category
 	//sa category kay i display ang mga existing na category para makita kung unsa ang i add
 	return (
-		<div className="container">
-			<div className="login">
+		<Fragment>
+			<div className="form-global">
 				<h2>New Menu</h2>
 
 				<form onSubmit={(e) => onSubmit(e)}>
-					<div className="form-group">
+					<div className="form-family">
 						<input
 							type="text"
 							name="mnuName"
@@ -46,7 +46,7 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 							onChange={(e) => onChange(e)}
 						/>
 					</div>
-					<div className="form-group">
+					<div className="form-family">
 						{/* //i map dire ang category */}
 						<select name="mnuCategory" onChange={(e) => onChange(e)} className="opt">
 							<option value="">--Select a category--</option>
@@ -58,7 +58,7 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 						</select>
 					</div>
 
-					<div className="form-group">
+					<div className="form-family">
 						<input
 							type="text"
 							name="mnuPrice"
@@ -67,14 +67,16 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 							onChange={(e) => onChange(e)}
 						/>
 					</div>
-					<input type="submit" value="Submit" />
-					<Link to="/staffMenu" onClick={updateFetchFlush}>
-						<input type="submit" value="Back" style={{ marginLeft: '10px' }} />
-					</Link>
+					<div className="form-family">
+						<Link to="/staffMenu" onClick={updateFetchFlush} className="btn-wrapper danger">
+							Back
+						</Link>
+						<input type="submit" value="Submit" className="btn-wrapper success" />
+					</div>
 				</form>
 			</div>
 			<CategoryNew />
-		</div>
+		</Fragment>
 	);
 };
 

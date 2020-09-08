@@ -8,16 +8,14 @@ const MenuUpdate = ({ actMenuUpdate, menuUpdateFetch, category, updateFetchFlush
 	return menuUpdateFetch.isLoaded === false ? (
 		<LoadingSpin />
 	) : (
-		<div className="container">
-			<div className="login">
-				<h2>Update Menu</h2>
-				<MenuUpdateForm
-					category={category}
-					menuUpdateFetch={menuUpdateFetch}
-					updateFetchFlush={updateFetchFlush}
-					actMenuUpdate={actMenuUpdate}
-				/>
-			</div>
+		<div className="form-global">
+			<h2>Update Menu</h2>
+			<MenuUpdateForm
+				category={category}
+				menuUpdateFetch={menuUpdateFetch}
+				updateFetchFlush={updateFetchFlush}
+				actMenuUpdate={actMenuUpdate}
+			/>
 		</div>
 	);
 };

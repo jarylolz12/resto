@@ -1,7 +1,7 @@
 @import 'config';
 
 @function set-txt-color($color) {
-	@if (lightness($color) > 30) {
+	@if (lightness($color) > 40) {
 		@return $dark;
 	} @else {
 		@return $light;
@@ -11,6 +11,15 @@
 @mixin set-bg ($color) {
 	background-color: $color;
 	color: set-txt-color($color);
+}
+
+@mixin set-color ($color) {
+	color: $color;
+	transition: color 200ms;
+	margin-left: .3rem;
+	&:hover {
+		color: $primary;
+	}
 }
 
 @mixin grid-container {
@@ -25,12 +34,7 @@
 	display: flex;
 	justify-content: space-between;
 	flex-flow: row;
-}
-
-@mixin flex-col {
-	display: flex;
-	justify-content: space-between;
-	flex-flow: column;
+	flex-wrap: wrap;
 }
 
 @mixin btn {
@@ -49,10 +53,12 @@
 		display: block;
 		width: 100%;
 		font-size: $small;
-		border: 1px solid #ccc;
+		border: $borders;
 		margin: auto;
+		padding: $x-small;
 	}
+
 	input[type='submit'] {
-		font-size: inherit;
+		margin: $x-small;
 	}
 }

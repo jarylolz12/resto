@@ -3,19 +3,19 @@
 
 .order-form {
 	max-width: 600px;
-	@include set-bg-color($bg-dark);
+	border: $borders;
+	@include set-bg($dark);
 
 	.order-item {
-		margin: $small $small;
-		&.status > form {
-			select {
-				display: block;
-				width: 150px;
-				font-size: $small;
-				border: 1px solid #ccc;
-				margin: $x-small auto;
-				padding: $x-small;
-			}
+		margin: $small;
+
+		select {
+			display: block;
+			width: 150px;
+			font-size: $small;
+			border: $borders;
+			margin: $x-small auto;
+			padding: $x-small;
 		}
 	}
 }
