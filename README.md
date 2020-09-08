@@ -1,4 +1,11 @@
 # resto
+
+*********************************************NOTE*********************************************
+
+                                This repo in under construction
+                                
+*********************************************NOTE*********************************************
+
 My personal app built with MERN(MongoDB, Express JS, React JS, Node JS) stack.
 
 A sample app site: https://calm-everglades-15287.herokuapp.com/
