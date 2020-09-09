@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const categorySchema = new mongoose.Schema({
-	mnuCategory: { type: String, required: true }, //pangalan sa order
+	mnuCategory: { type: String, required: true },
 	staffEncoded: [
 		{
 			type: mongoose.Schema.Types.ObjectId,

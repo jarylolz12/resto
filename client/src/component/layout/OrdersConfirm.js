@@ -5,12 +5,6 @@ import { LoadingSpin } from './LoadingSpin';
 import { Link, Redirect } from 'react-router-dom';
 import { ordersFetch, ordersSave } from '../../action/orders';
 const OrdersConfirm = ({ orders, isLoaded, ordersFetch, ordersSave, isAuthenticated }) => {
-	// const updateStorageDatas = () => {
-	// 	const stringMe = JSON.stringify(ordersData);
-	// 	sessionStorage.setItem('orders', stringMe);
-	// 	ordersFetch(ordersData);
-	// };
-
 	const [ ordersData, setOrdersData ] = useState(orders);
 
 	const updateStorageDatas = useCallback(

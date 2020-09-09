@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom';
 import CategoryNew from './CategoryNew';
 import { actCategory } from '../../action/category';
 const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
-	//set ka ug state sa menu ddito sa baba mapStateToProps
 	const [ menuNewData, setMenuNewData ] = useState({
 		mnuName: '',
 		mnuCategory: '',
@@ -29,8 +28,6 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 		actMenuNew({ mnuName, mnuCategory, mnuPrice });
 	};
 
-	//kung kaya maka add naka sa category ug bagong category
-	//sa category kay i display ang mga existing na category para makita kung unsa ang i add
 	return (
 		<Fragment>
 			<div className="form-global">
@@ -47,7 +44,6 @@ const MenuNew = ({ actMenuNew, category, updateFetchFlush, actCategory }) => {
 						/>
 					</div>
 					<div className="form-family">
-						{/* //i map dire ang category */}
 						<select name="mnuCategory" onChange={(e) => onChange(e)} className="opt">
 							<option value="">--Select a category--</option>
 							{category.map((categorize) => (

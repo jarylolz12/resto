@@ -4,13 +4,11 @@ import { LOGIN_SUCCESS, LOGIN_FAIL, USER_LOAD, LOG_OUT } from './types';
 import setAuthToken from '../utils/setAuthToken';
 
 export const actLogin = ({ email, password }) => async (dispatch) => {
-	//declare kag ug default object para sa imong credentials
 	const loginCredentials = {
 		email,
 		password
 	};
 
-	//himo kag object base sa headers na gusto nimo i set, tan awa tung sa postman
 	try {
 		const config = {
 			headers: {
@@ -18,23 +16,19 @@ export const actLogin = ({ email, password }) => async (dispatch) => {
 			}
 		};
 
-		//himoon json object ang data
-		const body = JSON.stringify(loginCredentials); //converto to json tung credetials nimo sa taas
-		//tawagon ang post route na login sa backend server (nodejs) para ma fetch ang data.
-		const res = await axios.post('/login', body, config); //tawagon sa axios ang server side para i compare ang data
-		//i store ang data nga imong g fetch nga data gikan sa axios paadto ddito sa redux state nga imong g set
+		const body = JSON.stringify(loginCredentials);
+
+		const res = await axios.post('/login', body, config);
 
 		dispatch({
 			type: LOGIN_SUCCESS,
 			payload: res.data
 		});
 
-		//handler para pag naay unod imong token
 		if (localStorage.token) {
 			setAuthToken(localStorage.token);
 		}
-		//pag naay unod imong token, fetch niya ang data nga naka query sa backend.
-		//pag walay token (id) mag error ang server
+
 		const response = await axios.get('/auth');
 		dispatch({
 			type: USER_LOAD,
@@ -49,7 +43,6 @@ export const actLogin = ({ email, password }) => async (dispatch) => {
 	}
 };
 
-// optional in the future kung naa nay registration ang user
 export const loadUser = () => async (dispatch) => {
 	try {
 		const res = await axios.get('/auth');

@@ -10,10 +10,7 @@ const format = {
 	format: 'A5',
 	orientation: 'landscape'
 };
-//route para sa API authentication
-//authentication para sa orders
-//access - Public >> (public or private) - para kung need ug token para i access ang specific route like mag register ka, kung d ka allowed sa specifi page,
-//unathorized access ka didto.
+
 router.get('/orders', conft.ticket, async (req, res) => {
 	try {
 		await Orders.find({}, (err, data) => {
@@ -45,7 +42,6 @@ router.post('/takeOrders', async (req, res) => {
 				if (err) {
 					return console.log(err);
 				} else {
-					//create siya pdf file base sa data nga i return sa create
 					return pdf.create(template(order), format).toFile(`${__dirname}/result.pdf`, (err, data) => {
 						if (err) {
 							return res.send(Promise.reject());

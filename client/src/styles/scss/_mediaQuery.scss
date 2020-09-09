@@ -76,7 +76,6 @@
 
 	.form-global {
 		width: 100%;
-		//force the table and int's content to be block element
 		table,
 		tbody,
 		th,
@@ -84,7 +83,6 @@
 		tr {
 			display: block;
 		}
-		//removing the table headers
 		tbody > tr:nth-of-type(1) {
 			margin: 0;
 			padding: 0;
@@ -93,7 +91,6 @@
 				display: none;
 			}
 		}
-		//set the table row to flexbox
 		tr {
 			display: flex;
 			flex-flow: row;
@@ -101,7 +98,6 @@
 			padding: 5px;
 			align-items: center;
 
-			//set the new properties of the table display accoring to size of UI
 			td {
 				width: 50%;
 				padding: 5px;
@@ -125,7 +121,6 @@
 		}
 	}
 
-	// about
 	.about-page {
 		width: 100%;
 		margin: $x-small auto auto auto;

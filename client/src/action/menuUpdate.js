@@ -52,11 +52,6 @@ export const actMenuUpdate = (newUpdate) => async (dispatch) => {
 			payload: res.data
 		});
 
-		//mao na ni ang solution
-		// dispatch({
-		// 	type: UPDATE_MENU_FLUSH
-		// });
-
 		dispatch(setAlert('Menu Updated', 'success'));
 	} catch (err) {
 		const errors = err.response.data.errors;

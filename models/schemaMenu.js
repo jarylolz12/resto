@@ -1,17 +1,17 @@
 const mongoose = require('mongoose');
 
 const menuSchema = new mongoose.Schema({
-	mnuName: { type: String, required: true }, //pangalan sa order
+	mnuName: { type: String, required: true },
 	mnuCategory: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'category'
 		}
-	], //unsa iyang category> Sud-an? Ilimnon?, Dessert?
-	mnuPrice: { type: Number, required: true }, //Tag Pila kol?
-	isAvailable: { type: Boolean, default: true }, //Meron ba kayong adobo? ... wala po.
-	isEdited: { type: Boolean, default: false }, //Kinsa man nag usab ani?
-	isUnli: { type: Boolean, default: false }, //Unli? unsa buffet?
+	],
+	mnuPrice: { type: Number, required: true },
+	isAvailable: { type: Boolean, default: true },
+	isEdited: { type: Boolean, default: false },
+	isUnli: { type: Boolean, default: false },
 	staffEncoded: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
@@ -24,8 +24,7 @@ const menuSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: 'user'
 		}
-	], //kinsa nag usab sa isAvailable?
-	//pag mag error i set ang module sa userSchema
+	],
 	editedDate: { type: String }
 });
 

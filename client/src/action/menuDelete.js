@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { setAlert } from './alert';
 import { DELETE_MENU, DELETE_MENU_FAIL } from './types';
-// import { MENU_FETCH } from './types';
 export const actFetchDelete = (id) => async (dispatch) => {
 	try {
 		if (id.id === '') {

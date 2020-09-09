@@ -22,33 +22,9 @@ const CategoryNew = ({ actCategoryNew, category, updateFetchFlush, actCategory }
 		return actCategory();
 	};
 
-	// const onSubmit = useCallback(
-	// 	(e, value) => {
-	// 		e.preventDefault();
-	// 		actCategoryNew(value);
-	// 		console.log('dfgfdg');
-	// 		return actCategory();
-	// 	},
-	// 	[ actCategory, actCategoryNew ] dili pud ka pwede mag useCallback
-	// );
-
-	// useEffect(
-	// 	() => {
-	// 		actCategory(); setcategory()
-	// 	},
-	// 	[ onSubmit, actCategory ]
-	// );
-
 	return (
 		<div className="form-global">
 			<h2>New Category</h2>
-
-			{/* <div className="catDisp">
-				<h4>Existing Categories</h4>
-				<ul className="catList">
-					{category.map((categorize) => <li key={categorize._id}>○ {categorize.mnuCategory}</li>)}
-				</ul>
-			</div> */}
 
 			<form onSubmit={(e) => onSubmit(e)}>
 				<div className="form-family">

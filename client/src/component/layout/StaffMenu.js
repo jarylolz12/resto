@@ -13,23 +13,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-/* <ul className="itemName">
-			<li>Menudo</li>
-			<li>150.00 php</li>
-		</ul>
-
-		<ul className="itemName">
-			<li>Asado</li>
-			<li>150.00 php</li>
-		</ul>
-
-		<ul className="itemName">
-			<li>Giniling</li>
-			<li>100.00 php</li>
-		</ul>
-
-		<ul className="itemName">
-			<li>Pasta</li>
-			<li>100.00 php</li>
-		</ul> */

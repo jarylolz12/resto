@@ -32,7 +32,6 @@ export const ordersSave = (confirmOrders) => async (dispatch) => {
 		const body = JSON.stringify(confirmOrders);
 		await axios
 			.post('/takeOrders', body, config)
-			//para i fetch ang PDF na g create sa server
 			.then(() => axios.get('/fetchStub', { responseType: 'blob' }))
 			.then((res) => {
 				const pdfBlob = new Blob([ res.data ], { type: 'application/pdf' });
