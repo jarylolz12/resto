@@ -28,4 +28,4 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = 5000;
-app.listen(PORT, () => console.log(`server started on http://127.0.0.1:${PORT}/`));
+app.listen(process.env.PORT, () => console.log(`server started on http://127.0.0.1:${PORT}/`));
