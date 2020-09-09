@@ -28,4 +28,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const PORT = 5000;
+//idungag ni niya na port kay dili basahon sa heroku,
+//nya i push jud tanan gamit ang WSL mapa github man or heroku kay sala nimo ni!!
 app.listen(process.env.PORT, () => console.log(`server started on http://127.0.0.1:${PORT}/`));
